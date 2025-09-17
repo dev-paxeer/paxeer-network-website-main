@@ -14784,6 +14784,15 @@ function FaEthereum(props) {
 function FaGithub(props) {
   return GenIcon({ "attr": { "viewBox": "0 0 496 512" }, "child": [{ "tag": "path", "attr": { "d": "M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" }, "child": [] }] })(props);
 }
+function FaNpm(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 576 512" }, "child": [{ "tag": "path", "attr": { "d": "M288 288h-32v-64h32v64zm288-128v192H288v32H160v-32H0V160h576zm-416 32H32v128h64v-96h32v96h32V192zm160 0H192v160h64v-32h64V192zm224 0H352v128h64v-96h32v96h32v-96h32v96h32V192z" }, "child": [] }] })(props);
+}
+function FaTelegram(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 496 512" }, "child": [{ "tag": "path", "attr": { "d": "M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm121.8 169.9l-40.7 191.8c-3 13.6-11.1 16.9-22.4 10.5l-62-45.7-29.9 28.8c-3.3 3.3-6.1 6.1-12.5 6.1l4.4-63.1 114.9-103.8c5-4.4-1.1-6.9-7.7-2.5l-142 89.4-61.2-19.1c-13.3-4.2-13.6-13.3 2.8-19.7l239.1-92.2c11.1-4 20.8 2.7 17.2 19.5z" }, "child": [] }] })(props);
+}
+function FaTwitter(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 512 512" }, "child": [{ "tag": "path", "attr": { "d": "M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" }, "child": [] }] })(props);
+}
 function FaBalanceScale(props) {
   return GenIcon({ "attr": { "viewBox": "0 0 640 512" }, "child": [{ "tag": "path", "attr": { "d": "M256 336h-.02c0-16.18 1.34-8.73-85.05-181.51-17.65-35.29-68.19-35.36-85.87 0C-2.06 328.75.02 320.33.02 336H0c0 44.18 57.31 80 128 80s128-35.82 128-80zM128 176l72 144H56l72-144zm511.98 160c0-16.18 1.34-8.73-85.05-181.51-17.65-35.29-68.19-35.36-85.87 0-87.12 174.26-85.04 165.84-85.04 181.51H384c0 44.18 57.31 80 128 80s128-35.82 128-80h-.02zM440 320l72-144 72 144H440zm88 128H352V153.25c23.51-10.29 41.16-31.48 46.39-57.25H528c8.84 0 16-7.16 16-16V48c0-8.84-7.16-16-16-16H383.64C369.04 12.68 346.09 0 320 0s-49.04 12.68-63.64 32H112c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h129.61c5.23 25.76 22.87 46.96 46.39 57.25V448H112c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h416c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z" }, "child": [] }] })(props);
 }
@@ -14801,6 +14810,9 @@ function FaCode(props) {
 }
 function FaCoins(props) {
   return GenIcon({ "attr": { "viewBox": "0 0 512 512" }, "child": [{ "tag": "path", "attr": { "d": "M0 405.3V448c0 35.3 86 64 192 64s192-28.7 192-64v-42.7C342.7 434.4 267.2 448 192 448S41.3 434.4 0 405.3zM320 128c106 0 192-28.7 192-64S426 0 320 0 128 28.7 128 64s86 64 192 64zM0 300.4V352c0 35.3 86 64 192 64s192-28.7 192-64v-51.6c-41.3 34-116.9 51.6-192 51.6S41.3 334.4 0 300.4zm416 11c57.3-11.1 96-31.7 96-55.4v-42.7c-23.2 16.4-57.3 27.6-96 34.5v63.6zM192 160C86 160 0 195.8 0 240s86 80 192 80 192-35.8 192-80-86-80-192-80zm219.3 56.3c60-10.8 100.7-32 100.7-56.3v-42.7c-35.5 25.1-96.5 38.6-160.7 41.8 29.5 14.3 51.2 33.5 60 57.2z" }, "child": [] }] })(props);
+}
+function FaEnvelope(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 512 512" }, "child": [{ "tag": "path", "attr": { "d": "M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z" }, "child": [] }] })(props);
 }
 function FaExchangeAlt(props) {
   return GenIcon({ "attr": { "viewBox": "0 0 512 512" }, "child": [{ "tag": "path", "attr": { "d": "M0 168v-16c0-13.255 10.745-24 24-24h360V80c0-21.367 25.899-32.042 40.971-16.971l80 80c9.372 9.373 9.372 24.569 0 33.941l-80 80C409.956 271.982 384 261.456 384 240v-48H24c-13.255 0-24-10.745-24-24zm488 152H128v-48c0-21.314-25.862-32.08-40.971-16.971l-80 80c-9.372 9.373-9.372 24.569 0 33.941l80 80C102.057 463.997 128 453.437 128 432v-48h360c13.255 0 24-10.745 24-24v-16c0-13.255-10.745-24-24-24z" }, "child": [] }] })(props);
@@ -14853,10 +14865,19 @@ function FaWallet(props) {
 function FaWater(props) {
   return GenIcon({ "attr": { "viewBox": "0 0 576 512" }, "child": [{ "tag": "path", "attr": { "d": "M562.1 383.9c-21.5-2.4-42.1-10.5-57.9-22.9-14.1-11.1-34.2-11.3-48.2 0-37.9 30.4-107.2 30.4-145.7-1.5-13.5-11.2-33-9.1-46.7 1.8-38 30.1-106.9 30-145.2-1.7-13.5-11.2-33.3-8.9-47.1 2-15.5 12.2-36 20.1-57.7 22.4-7.9.8-13.6 7.8-13.6 15.7v32.2c0 9.1 7.6 16.8 16.7 16 28.8-2.5 56.1-11.4 79.4-25.9 56.5 34.6 137 34.1 192 0 56.5 34.6 137 34.1 192 0 23.3 14.2 50.9 23.3 79.1 25.8 9.1.8 16.7-6.9 16.7-16v-31.6c.1-8-5.7-15.4-13.8-16.3zm0-144c-21.5-2.4-42.1-10.5-57.9-22.9-14.1-11.1-34.2-11.3-48.2 0-37.9 30.4-107.2 30.4-145.7-1.5-13.5-11.2-33-9.1-46.7 1.8-38 30.1-106.9 30-145.2-1.7-13.5-11.2-33.3-8.9-47.1 2-15.5 12.2-36 20.1-57.7 22.4-7.9.8-13.6 7.8-13.6 15.7v32.2c0 9.1 7.6 16.8 16.7 16 28.8-2.5 56.1-11.4 79.4-25.9 56.5 34.6 137 34.1 192 0 56.5 34.6 137 34.1 192 0 23.3 14.2 50.9 23.3 79.1 25.8 9.1.8 16.7-6.9 16.7-16v-31.6c.1-8-5.7-15.4-13.8-16.3zm0-144C540.6 93.4 520 85.4 504.2 73 490.1 61.9 470 61.7 456 73c-37.9 30.4-107.2 30.4-145.7-1.5-13.5-11.2-33-9.1-46.7 1.8-38 30.1-106.9 30-145.2-1.7-13.5-11.2-33.3-8.9-47.1 2-15.5 12.2-36 20.1-57.7 22.4-7.9.8-13.6 7.8-13.6 15.7v32.2c0 9.1 7.6 16.8 16.7 16 28.8-2.5 56.1-11.4 79.4-25.9 56.5 34.6 137 34.1 192 0 56.5 34.6 137 34.1 192 0 23.3 14.2 50.9 23.3 79.1 25.8 9.1.8 16.7-6.9 16.7-16v-31.6c.1-8-5.7-15.4-13.8-16.3z" }, "child": [] }] })(props);
 }
+const searchablePages = [
+  { path: "/docs", name: "Developers" },
+  { path: "/technology", name: "Technology" },
+  { path: "/token", name: "Token" },
+  { path: "/community", name: "Community" },
+  { path: "/about", name: "About" }
+];
 function Header() {
   const [isScrolled, setIsScrolled] = reactExports.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = reactExports.useState(false);
+  const [searchQuery, setSearchQuery] = reactExports.useState("");
   const location = useLocation();
+  const navigate = useNavigate();
   reactExports.useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -14871,6 +14892,16 @@ function Header() {
     { href: "/community", label: "Community" },
     { href: "/about", label: "About" }
   ];
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (!searchQuery.trim()) return;
+    const matchedPage = searchablePages.find(
+      (page) => page.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    if (matchedPage) {
+      navigate(matchedPage.path);
+    }
+  };
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     "header",
     {
@@ -14887,17 +14918,19 @@ function Header() {
             },
             link.href
           )) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "hidden md:block", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleSearch, className: "hidden md:block relative", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(
               "input",
               {
                 type: "text",
-                placeholder: "Search...",
-                className: "bg-[#1E1E2D] text-white pl-10 pr-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#35b7ff] w-64"
+                placeholder: "Search pages...",
+                className: "bg-[#1E1E2D] text-white pl-10 pr-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#35b7ff] w-64",
+                value: searchQuery,
+                onChange: (e) => setSearchQuery(e.target.value)
               }
             ),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(FaSearch, { className: "absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" })
-          ] }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", className: "absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400", children: /* @__PURE__ */ jsxRuntimeExports.jsx(FaSearch, {}) })
+          ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsx(
             "button",
             {
@@ -14918,25 +14951,51 @@ function Header() {
             },
             link.href
           )),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleSearch, className: "relative", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx(
               "input",
               {
                 type: "text",
-                placeholder: "Search...",
-                className: "bg-[#1E1E2D] text-white pl-10 pr-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#35b7ff] w-full"
+                placeholder: "Search pages...",
+                className: "bg-[#1E1E2D] text-white pl-10 pr-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#35b7ff] w-full",
+                value: searchQuery,
+                onChange: (e) => setSearchQuery(e.target.value)
               }
             ),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(FaSearch, { className: "absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", className: "absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400", children: /* @__PURE__ */ jsxRuntimeExports.jsx(FaSearch, {}) })
           ] })
         ] }) })
       ] })
     }
   );
 }
-function Footer() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("footer", { className: "py-8 border-t border-white/10", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-center text-white/60", children: "© 2025 Paxeer Network. All rights reserved." }) }) });
-}
+const Footer = () => {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("footer", { className: "bg-[#0A0B0E] text-white py-8", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-lg font-semibold mb-4 text-[#35b7ff]", children: "Connect" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-2 gap-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "https://github.com/organizations/Paxeer-Network", target: "_blank", rel: "noopener noreferrer", className: "text-gray-400 hover:text-white flex items-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(FaGithub, { className: "mr-2" }),
+        " GitHub"
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "https://www.npmjs.com/package/@paxeer-foundation", target: "_blank", rel: "noopener noreferrer", className: "text-gray-400 hover:text-white flex items-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(FaNpm, { className: "mr-2" }),
+        " NPM"
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "https://x.com/@paxeer_app", target: "_blank", rel: "noopener noreferrer", className: "text-gray-400 hover:text-white flex items-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(FaTwitter, { className: "mr-2" }),
+        " Twitter"
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "https://t.me/paxeer", target: "_blank", rel: "noopener noreferrer", className: "text-gray-400 hover:text-white flex items-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(FaTelegram, { className: "mr-2" }),
+        " Telegram"
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "mailto:infopaxeer@paxeer.app", className: "text-gray-400 hover:text-white flex items-center", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(FaEnvelope, { className: "mr-2" }),
+        " Email"
+      ] })
+    ] })
+  ] });
+};
 function setRef(ref, value) {
   if (typeof ref === "function") {
     return ref(value);
@@ -19968,8 +20027,7 @@ const DeFiFundamentals = () => {
           ] })
         ] })
       ] })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
+    ] })
   ] });
 };
 const Developers = () => {
@@ -20037,8 +20095,7 @@ const Developers = () => {
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mb-4", children: "Paxeer Network provides developers with a scalable, secure platform to build next-generation decentralized applications. As an L2 solution combining Ethereum security with high throughput and low fees, Paxeer offers the ideal environment for DeFi, NFTs, and Web3 innovation." }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "We encourage developers to prioritize security, transparency, and sustainable tokenomics in their projects. The Paxeer Foundation provides grants, technical support, and community resources to help quality projects succeed." })
       ] })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
+    ] })
   ] });
 };
 const RPCEndpoints = () => {
@@ -20144,8 +20201,7 @@ const RPCEndpoints = () => {
           /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "For development, consider running a local node for maximum control" })
         ] })
       ] })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
+    ] })
   ] });
 };
 const SecurityGuide = () => {
@@ -20269,8 +20325,7 @@ const SecurityGuide = () => {
           /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://community.paxeer.network/security", className: "text-[#35b7ff] hover:underline", children: "Paxeer Security Forum" }) })
         ] })
       ] })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
+    ] })
   ] });
 };
 const TradersGuide = () => {
@@ -20439,8 +20494,7 @@ const TradersGuide = () => {
           ] })
         ] })
       ] })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
+    ] })
   ] });
 };
 var propTypes = { exports: {} };
@@ -21679,8 +21733,7 @@ const WalletGuide = () => {
           /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://community.paxeer.network/wallets", className: "text-[#35b7ff] hover:underline", children: "Wallet Support Forum" }) })
         ] })
       ] })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
+    ] })
   ] });
 };
 function useLoading() {

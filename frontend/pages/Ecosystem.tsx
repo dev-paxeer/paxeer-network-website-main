@@ -54,6 +54,26 @@ const Ecosystem: NextPage = () => {
         </div>
 
         <div className={styles.contentSection}>
+          <h2>Core Protocols</h2>
+          <div className="grid md:grid-cols-2 gap-4 mt-6">
+            <a href="https://paxport.paxeer.app" target="_blank" rel="noopener noreferrer" className="p-4 border border-[#2d2d3a] rounded-lg hover:border-[#35b7ff] transition-colors">
+              <h3 className="text-xl font-semibold mb-2">Paxport Wallet</h3>
+              <p className="text-gray-400">Official non-custodial wallet for Paxeer Network</p>
+            </a>
+            
+            <a href="https://orbex.paxeer.app" target="_blank" rel="noopener noreferrer" className="p-4 border border-[#2d2d3a] rounded-lg hover:border-[#35b7ff] transition-colors">
+              <h3 className="text-xl font-semibold mb-2">Orbex CEX</h3>
+              <p className="text-gray-400">Centralized exchange with deep liquidity</p>
+            </a>
+            
+            <a href="https://chainscan.paxeer.app" target="_blank" rel="noopener noreferrer" className="p-4 border border-[#2d2d3a] rounded-lg hover:border-[#35b7ff] transition-colors">
+              <h3 className="text-xl font-semibold mb-2">ChainScan Block Explorer</h3>
+              <p className="text-gray-400">Explore transactions, blocks, and contracts</p>
+            </a>
+          </div>
+        </div>
+
+        <div className={styles.contentSection}>
           <h2>Add Your Project to the Ecosystem</h2>
           <p>
             Are you building on Paxeer? We want to hear from you. Submit your project to get listed in our official directory and gain exposure to our rapidly growing community.
