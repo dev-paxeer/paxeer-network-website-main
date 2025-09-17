@@ -18681,16 +18681,16 @@ function Homepage() {
   const navigate = useNavigate();
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "pt-16", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs(VantaBackground, { effect: "net", className: "relative min-h-screen flex items-center justify-center overflow-hidden", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-[url('/hero-bg.jpg')] bg-cover bg-center filter blur-sm opacity-20" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-[url('/hero-bg.jpg')] bg-cover bg-center filter blur-md opacity-30" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10 px-6 py-24 text-center", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(FloatingElements, {}),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(AnimatedSection, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", { className: "text-5xl md:text-7xl font-bold mb-6", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(AnimatedSection, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", { className: "text-5xl font-bold mb-6 text-white drop-shadow-lg", children: [
             "Explore a",
             " ",
             /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[#35b7ff] bg-gradient-to-r from-[#35b7ff] to-[#00a8ff] bg-clip-text text-transparent", children: "Thriving Digital Economy" })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xl md:text-2xl text-white/80 mb-8 max-w-3xl mx-auto", children: "Paxeer Network is a high-performance Web3 protocol designed to power the next generation of decentralized finance applications." }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xl text-gray-200 mb-8 max-w-3xl mx-auto drop-shadow-md", children: "Paxeer Network is a high-performance Web3 protocol designed to power the next generation of decentralized finance applications." }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col sm:flex-row gap-4 justify-center items-center mb-8", children: [
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center", children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-3xl font-bold text-[#35b7ff]", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AnimatedNumber, { value: 2500, suffix: "+" }) }),
@@ -18711,14 +18711,14 @@ function Homepage() {
             "button",
             {
               onClick: () => navigate("/get-started"),
-              className: "mt-8 px-8 py-3 bg-[#35b7ff] text-white rounded-lg hover:bg-[#2a9bda] transition-colors",
+              className: "mt-8 px-8 py-3 bg-[#35b7ff] text-white rounded-lg hover:bg-[#2a9bda] transition-colors shadow-lg",
               children: [
                 "Get Started",
                 /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "ml-2 w-5 h-5" })
               ]
             }
           )
-        ] }) }),
+        ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(WaveAnimation, { className: "absolute bottom-0 left-0 right-0 h-32" })
       ] })
     ] }),
