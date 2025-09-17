@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-import { NextPage } from 'next';
-import Head from 'next/head';
 import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
 import { 
   FaSkull,
   FaRocket,
@@ -12,7 +9,7 @@ import {
 } from 'react-icons/fa';
 import styles from '../styles/Home.module.css';
 
-const TradersGuide: NextPage = () => {
+const TradersGuide = () => {
   const [activeScam, setActiveScam] = useState('rug-pull');
 
   const scamTypes = [
@@ -110,13 +107,13 @@ const TradersGuide: NextPage = () => {
 
   return (
     <div className={styles.container}>
-      <Head>
+      <>
         <title>Traders Guide | Paxeer Network</title>
         <meta 
           name="description" 
           content="Learn to identify and avoid common crypto trading scams on Paxeer Network" 
         />
-      </Head>
+      </>
 
       <Header />
 
@@ -201,8 +198,6 @@ const TradersGuide: NextPage = () => {
           </div>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 };

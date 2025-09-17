@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-import { NextPage } from 'next';
-import Head from 'next/head';
 import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
 import { 
   FaShieldAlt,
   FaKey,
@@ -12,7 +9,7 @@ import {
 } from 'react-icons/fa';
 import styles from '../styles/Home.module.css';
 
-const SecurityGuide: NextPage = () => {
+const SecurityGuide = () => {
   const [activeTab, setActiveTab] = useState('basics');
 
   const tabs = [
@@ -24,13 +21,11 @@ const SecurityGuide: NextPage = () => {
 
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Security Guide | Paxeer Network</title>
-        <meta 
-          name="description" 
-          content="Essential security practices for protecting your crypto assets on Paxeer Network" 
-        />
-      </Head>
+      <title>Security Guide | Paxeer Network</title>
+      <meta 
+        name="description" 
+        content="Essential security practices for protecting your crypto assets on Paxeer Network" 
+      />
 
       <Header />
 
@@ -174,8 +169,6 @@ const SecurityGuide: NextPage = () => {
           </ul>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 };

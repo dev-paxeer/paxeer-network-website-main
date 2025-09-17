@@ -877,11 +877,11 @@ function requireReactDom_production() {
       return "use-credentials" === input ? input : "";
   }
   reactDom_production.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE = Internals;
-  reactDom_production.createPortal = function(children, container) {
+  reactDom_production.createPortal = function(children, container2) {
     var key = 2 < arguments.length && void 0 !== arguments[2] ? arguments[2] : null;
-    if (!container || 1 !== container.nodeType && 9 !== container.nodeType && 11 !== container.nodeType)
+    if (!container2 || 1 !== container2.nodeType && 9 !== container2.nodeType && 11 !== container2.nodeType)
       throw Error(formatProdErrorMessage(299));
-    return createPortal$1(children, container, null, key);
+    return createPortal$1(children, container2, null, key);
   };
   reactDom_production.flushSync = function(fn) {
     var previousTransition = ReactSharedInternals.T, previousUpdatePriority = Internals.p;
@@ -1915,18 +1915,18 @@ function requireReactDomClient_production() {
     var isCustomProperty = 0 === styleName.indexOf("--");
     null == value || "boolean" === typeof value || "" === value ? isCustomProperty ? style2.setProperty(styleName, "") : "float" === styleName ? style2.cssFloat = "" : style2[styleName] = "" : isCustomProperty ? style2.setProperty(styleName, value) : "number" !== typeof value || 0 === value || unitlessNumbers.has(styleName) ? "float" === styleName ? style2.cssFloat = value : style2[styleName] = ("" + value).trim() : style2[styleName] = value + "px";
   }
-  function setValueForStyles(node, styles, prevStyles) {
-    if (null != styles && "object" !== typeof styles)
+  function setValueForStyles(node, styles2, prevStyles) {
+    if (null != styles2 && "object" !== typeof styles2)
       throw Error(formatProdErrorMessage(62));
     node = node.style;
     if (null != prevStyles) {
       for (var styleName in prevStyles)
-        !prevStyles.hasOwnProperty(styleName) || null != styles && styles.hasOwnProperty(styleName) || (0 === styleName.indexOf("--") ? node.setProperty(styleName, "") : "float" === styleName ? node.cssFloat = "" : node[styleName] = "");
-      for (var styleName$16 in styles)
-        styleName = styles[styleName$16], styles.hasOwnProperty(styleName$16) && prevStyles[styleName$16] !== styleName && setValueForStyle(node, styleName$16, styleName);
+        !prevStyles.hasOwnProperty(styleName) || null != styles2 && styles2.hasOwnProperty(styleName) || (0 === styleName.indexOf("--") ? node.setProperty(styleName, "") : "float" === styleName ? node.cssFloat = "" : node[styleName] = "");
+      for (var styleName$16 in styles2)
+        styleName = styles2[styleName$16], styles2.hasOwnProperty(styleName$16) && prevStyles[styleName$16] !== styleName && setValueForStyle(node, styleName$16, styleName);
     } else
-      for (var styleName$17 in styles)
-        styles.hasOwnProperty(styleName$17) && setValueForStyle(node, styleName$17, styles[styleName$17]);
+      for (var styleName$17 in styles2)
+        styles2.hasOwnProperty(styleName$17) && setValueForStyle(node, styleName$17, styles2[styleName$17]);
   }
   function isCustomElement(tagName) {
     if (-1 === tagName.indexOf("-")) return false;
@@ -9557,8 +9557,8 @@ function requireReactDomClient_production() {
         if (null === targetInst$jscomp$0) return;
         var nodeTag = targetInst$jscomp$0.tag;
         if (3 === nodeTag || 4 === nodeTag) {
-          var container = targetInst$jscomp$0.stateNode.containerInfo;
-          if (container === targetContainer) break;
+          var container2 = targetInst$jscomp$0.stateNode.containerInfo;
+          if (container2 === targetContainer) break;
           if (4 === nodeTag)
             for (nodeTag = targetInst$jscomp$0.return; null !== nodeTag; ) {
               var grandTag = nodeTag.tag;
@@ -9566,15 +9566,15 @@ function requireReactDomClient_production() {
                 return;
               nodeTag = nodeTag.return;
             }
-          for (; null !== container; ) {
-            nodeTag = getClosestInstanceFromNode(container);
+          for (; null !== container2; ) {
+            nodeTag = getClosestInstanceFromNode(container2);
             if (null === nodeTag) return;
             grandTag = nodeTag.tag;
             if (5 === grandTag || 6 === grandTag || 26 === grandTag || 27 === grandTag) {
               targetInst$jscomp$0 = ancestorInst = nodeTag;
               continue a;
             }
-            container = container.parentNode;
+            container2 = container2.parentNode;
           }
         }
         targetInst$jscomp$0 = targetInst$jscomp$0.return;
@@ -10762,8 +10762,8 @@ function requireReactDomClient_production() {
     } while (node);
     retryIfBlockedOn(suspenseInstance);
   }
-  function clearContainerSparingly(container) {
-    var nextNode = container.firstChild;
+  function clearContainerSparingly(container2) {
+    var nextNode = container2.firstChild;
     nextNode && 10 === nextNode.nodeType && (nextNode = nextNode.nextSibling);
     for (; nextNode; ) {
       var node = nextNode;
@@ -10781,7 +10781,7 @@ function requireReactDomClient_production() {
         case "LINK":
           if ("stylesheet" === node.rel.toLowerCase()) continue;
       }
-      container.removeChild(node);
+      container2.removeChild(node);
     }
   }
   function canHydrateInstance(instance, type, props, inRootOrSingleton) {
@@ -10903,8 +10903,8 @@ function requireReactDomClient_production() {
     detachDeletedInstance(instance);
   }
   var preloadPropsMap = /* @__PURE__ */ new Map(), preconnectsSet = /* @__PURE__ */ new Set();
-  function getHoistableRoot(container) {
-    return "function" === typeof container.getRootNode ? container.getRootNode() : 9 === container.nodeType ? container : container.ownerDocument;
+  function getHoistableRoot(container2) {
+    return "function" === typeof container2.getRootNode ? container2.getRootNode() : 9 === container2.nodeType ? container2 : container2.ownerDocument;
   }
   var previousDispatcher = ReactDOMSharedInternals.d;
   ReactDOMSharedInternals.d = {
@@ -11008,9 +11008,9 @@ function requireReactDomClient_production() {
     previousDispatcher.S(href, precedence, options2);
     var ownerDocument = globalDocument;
     if (ownerDocument && href) {
-      var styles = getResourcesFromRoot(ownerDocument).hoistableStyles, key = getStyleKey(href);
+      var styles2 = getResourcesFromRoot(ownerDocument).hoistableStyles, key = getStyleKey(href);
       precedence = precedence || "default";
-      var resource = styles.get(key);
+      var resource = styles2.get(key);
       if (!resource) {
         var state = { loading: 0, preload: null };
         if (resource = ownerDocument.querySelector(
@@ -11045,7 +11045,7 @@ function requireReactDomClient_production() {
           count: 1,
           state
         };
-        styles.set(key, resource);
+        styles2.set(key, resource);
       }
     }
   }
@@ -11471,14 +11471,14 @@ function requireReactDomClient_production() {
     parentComponent = emptyContextObject;
     return parentComponent;
   }
-  function updateContainerImpl(rootFiber, lane, element, container, parentComponent, callback) {
+  function updateContainerImpl(rootFiber, lane, element, container2, parentComponent, callback) {
     parentComponent = getContextForSubtree(parentComponent);
-    null === container.context ? container.context = parentComponent : container.pendingContext = parentComponent;
-    container = createUpdate(lane);
-    container.payload = { element };
+    null === container2.context ? container2.context = parentComponent : container2.pendingContext = parentComponent;
+    container2 = createUpdate(lane);
+    container2.payload = { element };
     callback = void 0 === callback ? null : callback;
-    null !== callback && (container.callback = callback);
-    element = enqueueUpdate(rootFiber, container, lane);
+    null !== callback && (container2.callback = callback);
+    element = enqueueUpdate(rootFiber, container2, lane);
     null !== element && (scheduleUpdateOnFiber(element, rootFiber, lane), entangleTransitions(element, rootFiber, lane));
   }
   function markRetryLaneImpl(fiber, retryLane) {
@@ -11500,22 +11500,22 @@ function requireReactDomClient_production() {
     }
   }
   var _enabled = true;
-  function dispatchDiscreteEvent(domEventName, eventSystemFlags, container, nativeEvent) {
+  function dispatchDiscreteEvent(domEventName, eventSystemFlags, container2, nativeEvent) {
     var prevTransition = ReactSharedInternals.T;
     ReactSharedInternals.T = null;
     var previousPriority = ReactDOMSharedInternals.p;
     try {
-      ReactDOMSharedInternals.p = 2, dispatchEvent(domEventName, eventSystemFlags, container, nativeEvent);
+      ReactDOMSharedInternals.p = 2, dispatchEvent(domEventName, eventSystemFlags, container2, nativeEvent);
     } finally {
       ReactDOMSharedInternals.p = previousPriority, ReactSharedInternals.T = prevTransition;
     }
   }
-  function dispatchContinuousEvent(domEventName, eventSystemFlags, container, nativeEvent) {
+  function dispatchContinuousEvent(domEventName, eventSystemFlags, container2, nativeEvent) {
     var prevTransition = ReactSharedInternals.T;
     ReactSharedInternals.T = null;
     var previousPriority = ReactDOMSharedInternals.p;
     try {
-      ReactDOMSharedInternals.p = 8, dispatchEvent(domEventName, eventSystemFlags, container, nativeEvent);
+      ReactDOMSharedInternals.p = 8, dispatchEvent(domEventName, eventSystemFlags, container2, nativeEvent);
     } finally {
       ReactDOMSharedInternals.p = previousPriority, ReactSharedInternals.T = prevTransition;
     }
@@ -11943,10 +11943,10 @@ function requireReactDomClient_production() {
     var root2 = this._internalRoot;
     if (null !== root2) {
       this._internalRoot = null;
-      var container = root2.containerInfo;
+      var container2 = root2.containerInfo;
       updateContainerImpl(root2.current, 2, null, root2, null, null);
       flushSyncWork$1();
-      container[internalContainerInstanceKey] = null;
+      container2[internalContainerInstanceKey] = null;
     }
   };
   function ReactDOMHydrationRoot(internalRoot) {
@@ -12000,12 +12000,12 @@ function requireReactDomClient_production() {
       } catch (err) {
       }
   }
-  reactDomClient_production.createRoot = function(container, options2) {
-    if (!isValidContainer(container)) throw Error(formatProdErrorMessage(299));
+  reactDomClient_production.createRoot = function(container2, options2) {
+    if (!isValidContainer(container2)) throw Error(formatProdErrorMessage(299));
     var isStrictMode = false, identifierPrefix = "", onUncaughtError = defaultOnUncaughtError, onCaughtError = defaultOnCaughtError, onRecoverableError = defaultOnRecoverableError, transitionCallbacks = null;
     null !== options2 && void 0 !== options2 && (true === options2.unstable_strictMode && (isStrictMode = true), void 0 !== options2.identifierPrefix && (identifierPrefix = options2.identifierPrefix), void 0 !== options2.onUncaughtError && (onUncaughtError = options2.onUncaughtError), void 0 !== options2.onCaughtError && (onCaughtError = options2.onCaughtError), void 0 !== options2.onRecoverableError && (onRecoverableError = options2.onRecoverableError), void 0 !== options2.unstable_transitionCallbacks && (transitionCallbacks = options2.unstable_transitionCallbacks));
     options2 = createFiberRoot(
-      container,
+      container2,
       1,
       false,
       null,
@@ -12018,16 +12018,16 @@ function requireReactDomClient_production() {
       transitionCallbacks,
       null
     );
-    container[internalContainerInstanceKey] = options2.current;
-    listenToAllSupportedEvents(container);
+    container2[internalContainerInstanceKey] = options2.current;
+    listenToAllSupportedEvents(container2);
     return new ReactDOMRoot(options2);
   };
-  reactDomClient_production.hydrateRoot = function(container, initialChildren, options2) {
-    if (!isValidContainer(container)) throw Error(formatProdErrorMessage(299));
+  reactDomClient_production.hydrateRoot = function(container2, initialChildren, options2) {
+    if (!isValidContainer(container2)) throw Error(formatProdErrorMessage(299));
     var isStrictMode = false, identifierPrefix = "", onUncaughtError = defaultOnUncaughtError, onCaughtError = defaultOnCaughtError, onRecoverableError = defaultOnRecoverableError, transitionCallbacks = null, formState = null;
     null !== options2 && void 0 !== options2 && (true === options2.unstable_strictMode && (isStrictMode = true), void 0 !== options2.identifierPrefix && (identifierPrefix = options2.identifierPrefix), void 0 !== options2.onUncaughtError && (onUncaughtError = options2.onUncaughtError), void 0 !== options2.onCaughtError && (onCaughtError = options2.onCaughtError), void 0 !== options2.onRecoverableError && (onRecoverableError = options2.onRecoverableError), void 0 !== options2.unstable_transitionCallbacks && (transitionCallbacks = options2.unstable_transitionCallbacks), void 0 !== options2.formState && (formState = options2.formState));
     initialChildren = createFiberRoot(
-      container,
+      container2,
       1,
       true,
       initialChildren,
@@ -12051,8 +12051,8 @@ function requireReactDomClient_production() {
     initialChildren.current.lanes = options2;
     markRootUpdated$1(initialChildren, options2);
     ensureRootIsScheduled(initialChildren);
-    container[internalContainerInstanceKey] = initialChildren.current;
-    listenToAllSupportedEvents(container);
+    container2[internalContainerInstanceKey] = initialChildren.current;
+    listenToAllSupportedEvents(container2);
     return new ReactDOMHydrationRoot(initialChildren);
   };
   reactDomClient_production.version = "19.1.1";
@@ -14645,6 +14645,298 @@ const __iconNode = [
   ]
 ];
 const Zap = createLucideIcon("zap", __iconNode);
+var DefaultContext = {
+  color: void 0,
+  size: void 0,
+  className: void 0,
+  style: void 0,
+  attr: void 0
+};
+var IconContext = React.createContext && /* @__PURE__ */ React.createContext(DefaultContext);
+var _excluded = ["attr", "size", "title"];
+function _objectWithoutProperties(source, excluded) {
+  if (source == null) return {};
+  var target = _objectWithoutPropertiesLoose(source, excluded);
+  var key, i;
+  if (Object.getOwnPropertySymbols) {
+    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
+    for (i = 0; i < sourceSymbolKeys.length; i++) {
+      key = sourceSymbolKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
+      target[key] = source[key];
+    }
+  }
+  return target;
+}
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  for (var key in source) {
+    if (Object.prototype.hasOwnProperty.call(source, key)) {
+      if (excluded.indexOf(key) >= 0) continue;
+      target[key] = source[key];
+    }
+  }
+  return target;
+}
+function _extends$1() {
+  _extends$1 = Object.assign ? Object.assign.bind() : function(target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+    return target;
+  };
+  return _extends$1.apply(this, arguments);
+}
+function ownKeys(e, r2) {
+  var t = Object.keys(e);
+  if (Object.getOwnPropertySymbols) {
+    var o = Object.getOwnPropertySymbols(e);
+    r2 && (o = o.filter(function(r3) {
+      return Object.getOwnPropertyDescriptor(e, r3).enumerable;
+    })), t.push.apply(t, o);
+  }
+  return t;
+}
+function _objectSpread(e) {
+  for (var r2 = 1; r2 < arguments.length; r2++) {
+    var t = null != arguments[r2] ? arguments[r2] : {};
+    r2 % 2 ? ownKeys(Object(t), true).forEach(function(r3) {
+      _defineProperty(e, r3, t[r3]);
+    }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function(r3) {
+      Object.defineProperty(e, r3, Object.getOwnPropertyDescriptor(t, r3));
+    });
+  }
+  return e;
+}
+function _defineProperty(obj, key, value) {
+  key = _toPropertyKey(key);
+  if (key in obj) {
+    Object.defineProperty(obj, key, { value, enumerable: true, configurable: true, writable: true });
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
+function _toPropertyKey(t) {
+  var i = _toPrimitive(t, "string");
+  return "symbol" == typeof i ? i : i + "";
+}
+function _toPrimitive(t, r2) {
+  if ("object" != typeof t || !t) return t;
+  var e = t[Symbol.toPrimitive];
+  if (void 0 !== e) {
+    var i = e.call(t, r2);
+    if ("object" != typeof i) return i;
+    throw new TypeError("@@toPrimitive must return a primitive value.");
+  }
+  return ("string" === r2 ? String : Number)(t);
+}
+function Tree2Element(tree) {
+  return tree && tree.map((node, i) => /* @__PURE__ */ React.createElement(node.tag, _objectSpread({
+    key: i
+  }, node.attr), Tree2Element(node.child)));
+}
+function GenIcon(data) {
+  return (props) => /* @__PURE__ */ React.createElement(IconBase, _extends$1({
+    attr: _objectSpread({}, data.attr)
+  }, props), Tree2Element(data.child));
+}
+function IconBase(props) {
+  var elem = (conf) => {
+    var {
+      attr,
+      size,
+      title: title2
+    } = props, svgProps = _objectWithoutProperties(props, _excluded);
+    var computedSize = size || conf.size || "1em";
+    var className;
+    if (conf.className) className = conf.className;
+    if (props.className) className = (className ? className + " " : "") + props.className;
+    return /* @__PURE__ */ React.createElement("svg", _extends$1({
+      stroke: "currentColor",
+      fill: "currentColor",
+      strokeWidth: "0"
+    }, conf.attr, attr, svgProps, {
+      className,
+      style: _objectSpread(_objectSpread({
+        color: props.color || conf.color
+      }, conf.style), props.style),
+      height: computedSize,
+      width: computedSize,
+      xmlns: "http://www.w3.org/2000/svg"
+    }), title2 && /* @__PURE__ */ React.createElement("title", null, title2), props.children);
+  };
+  return IconContext !== void 0 ? /* @__PURE__ */ React.createElement(IconContext.Consumer, null, (conf) => elem(conf)) : elem(DefaultContext);
+}
+function FaBitcoin(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 512 512" }, "child": [{ "tag": "path", "attr": { "d": "M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zm-141.651-35.33c4.937-32.999-20.191-50.739-54.55-62.573l11.146-44.702-27.213-6.781-10.851 43.524c-7.154-1.783-14.502-3.464-21.803-5.13l10.929-43.81-27.198-6.781-11.153 44.686c-5.922-1.349-11.735-2.682-17.377-4.084l.031-.14-37.53-9.37-7.239 29.062s20.191 4.627 19.765 4.913c11.022 2.751 13.014 10.044 12.68 15.825l-12.696 50.925c.76.194 1.744.473 2.829.907-.907-.225-1.876-.473-2.876-.713l-17.796 71.338c-1.349 3.348-4.767 8.37-12.471 6.464.271.395-19.78-4.937-19.78-4.937l-13.51 31.147 35.414 8.827c6.588 1.651 13.045 3.379 19.4 5.006l-11.262 45.213 27.182 6.781 11.153-44.733a1038.209 1038.209 0 0 0 21.687 5.627l-11.115 44.523 27.213 6.781 11.262-45.128c46.404 8.781 81.299 5.239 95.986-36.727 11.836-33.79-.589-53.281-25.004-65.991 17.78-4.098 31.174-15.792 34.747-39.949zm-62.177 87.179c-8.41 33.79-65.308 15.523-83.755 10.943l14.944-59.899c18.446 4.603 77.6 13.717 68.811 48.956zm8.417-87.667c-7.673 30.736-55.031 15.12-70.393 11.292l13.548-54.327c15.363 3.828 64.836 10.973 56.845 43.035z" }, "child": [] }] })(props);
+}
+function FaEthereum(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 320 512" }, "child": [{ "tag": "path", "attr": { "d": "M311.9 260.8L160 353.6 8 260.8 160 0l151.9 260.8zM160 383.4L8 290.6 160 512l152-221.4-152 92.8z" }, "child": [] }] })(props);
+}
+function FaGithub(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 496 512" }, "child": [{ "tag": "path", "attr": { "d": "M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" }, "child": [] }] })(props);
+}
+function FaBalanceScale(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 640 512" }, "child": [{ "tag": "path", "attr": { "d": "M256 336h-.02c0-16.18 1.34-8.73-85.05-181.51-17.65-35.29-68.19-35.36-85.87 0C-2.06 328.75.02 320.33.02 336H0c0 44.18 57.31 80 128 80s128-35.82 128-80zM128 176l72 144H56l72-144zm511.98 160c0-16.18 1.34-8.73-85.05-181.51-17.65-35.29-68.19-35.36-85.87 0-87.12 174.26-85.04 165.84-85.04 181.51H384c0 44.18 57.31 80 128 80s128-35.82 128-80h-.02zM440 320l72-144 72 144H440zm88 128H352V153.25c23.51-10.29 41.16-31.48 46.39-57.25H528c8.84 0 16-7.16 16-16V48c0-8.84-7.16-16-16-16H383.64C369.04 12.68 346.09 0 320 0s-49.04 12.68-63.64 32H112c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h129.61c5.23 25.76 22.87 46.96 46.39 57.25V448H112c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h416c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z" }, "child": [] }] })(props);
+}
+function FaBook(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 448 512" }, "child": [{ "tag": "path", "attr": { "d": "M448 360V24c0-13.3-10.7-24-24-24H96C43 0 0 43 0 96v320c0 53 43 96 96 96h328c13.3 0 24-10.7 24-24v-16c0-7.5-3.5-14.3-8.9-18.7-4.2-15.4-4.2-59.3 0-74.7 5.4-4.3 8.9-11.1 8.9-18.6zM128 134c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm0 64c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm253.4 250H96c-17.7 0-32-14.3-32-32 0-17.6 14.4-32 32-32h285.4c-1.9 17.1-1.9 46.9 0 64z" }, "child": [] }] })(props);
+}
+function FaChartLine(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 512 512" }, "child": [{ "tag": "path", "attr": { "d": "M496 384H64V80c0-8.84-7.16-16-16-16H16C7.16 64 0 71.16 0 80v336c0 17.67 14.33 32 32 32h464c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16zM464 96H345.94c-21.38 0-32.09 25.85-16.97 40.97l32.4 32.4L288 242.75l-73.37-73.37c-12.5-12.5-32.76-12.5-45.25 0l-68.69 68.69c-6.25 6.25-6.25 16.38 0 22.63l22.62 22.62c6.25 6.25 16.38 6.25 22.63 0L192 237.25l73.37 73.37c12.5 12.5 32.76 12.5 45.25 0l96-96 32.4 32.4c15.12 15.12 40.97 4.41 40.97-16.97V112c.01-8.84-7.15-16-15.99-16z" }, "child": [] }] })(props);
+}
+function FaCheckCircle(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 512 512" }, "child": [{ "tag": "path", "attr": { "d": "M504 256c0 136.967-111.033 248-248 248S8 392.967 8 256 119.033 8 256 8s248 111.033 248 248zM227.314 387.314l184-184c6.248-6.248 6.248-16.379 0-22.627l-22.627-22.627c-6.248-6.249-16.379-6.249-22.628 0L216 308.118l-70.059-70.059c-6.248-6.248-16.379-6.248-22.628 0l-22.627 22.627c-6.248 6.248-6.248 16.379 0 22.627l104 104c6.249 6.249 16.379 6.249 22.628.001z" }, "child": [] }] })(props);
+}
+function FaCode(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 640 512" }, "child": [{ "tag": "path", "attr": { "d": "M278.9 511.5l-61-17.7c-6.4-1.8-10-8.5-8.2-14.9L346.2 8.7c1.8-6.4 8.5-10 14.9-8.2l61 17.7c6.4 1.8 10 8.5 8.2 14.9L293.8 503.3c-1.9 6.4-8.5 10.1-14.9 8.2zm-114-112.2l43.5-46.4c4.6-4.9 4.3-12.7-.8-17.2L117 256l90.6-79.7c5.1-4.5 5.5-12.3.8-17.2l-43.5-46.4c-4.5-4.8-12.1-5.1-17-.5L3.8 247.2c-5.1 4.7-5.1 12.8 0 17.5l144.1 135.1c4.9 4.6 12.5 4.4 17-.5zm327.2.6l144.1-135.1c5.1-4.7 5.1-12.8 0-17.5L492.1 112.1c-4.8-4.5-12.4-4.3-17 .5L431.6 159c-4.6 4.9-4.3 12.7.8 17.2L523 256l-90.6 79.7c-5.1 4.5-5.5 12.3-.8 17.2l43.5 46.4c4.5 4.9 12.1 5.1 17 .6z" }, "child": [] }] })(props);
+}
+function FaCoins(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 512 512" }, "child": [{ "tag": "path", "attr": { "d": "M0 405.3V448c0 35.3 86 64 192 64s192-28.7 192-64v-42.7C342.7 434.4 267.2 448 192 448S41.3 434.4 0 405.3zM320 128c106 0 192-28.7 192-64S426 0 320 0 128 28.7 128 64s86 64 192 64zM0 300.4V352c0 35.3 86 64 192 64s192-28.7 192-64v-51.6c-41.3 34-116.9 51.6-192 51.6S41.3 334.4 0 300.4zm416 11c57.3-11.1 96-31.7 96-55.4v-42.7c-23.2 16.4-57.3 27.6-96 34.5v63.6zM192 160C86 160 0 195.8 0 240s86 80 192 80 192-35.8 192-80-86-80-192-80zm219.3 56.3c60-10.8 100.7-32 100.7-56.3v-42.7c-35.5 25.1-96.5 38.6-160.7 41.8 29.5 14.3 51.2 33.5 60 57.2z" }, "child": [] }] })(props);
+}
+function FaExchangeAlt(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 512 512" }, "child": [{ "tag": "path", "attr": { "d": "M0 168v-16c0-13.255 10.745-24 24-24h360V80c0-21.367 25.899-32.042 40.971-16.971l80 80c9.372 9.373 9.372 24.569 0 33.941l-80 80C409.956 271.982 384 261.456 384 240v-48H24c-13.255 0-24-10.745-24-24zm488 152H128v-48c0-21.314-25.862-32.08-40.971-16.971l-80 80c-9.372 9.373-9.372 24.569 0 33.941l80 80C102.057 463.997 128 453.437 128 432v-48h360c13.255 0 24-10.745 24-24v-16c0-13.255-10.745-24-24-24z" }, "child": [] }] })(props);
+}
+function FaExclamationTriangle(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 576 512" }, "child": [{ "tag": "path", "attr": { "d": "M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z" }, "child": [] }] })(props);
+}
+function FaExternalLinkAlt(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 512 512" }, "child": [{ "tag": "path", "attr": { "d": "M432,320H400a16,16,0,0,0-16,16V448H64V128H208a16,16,0,0,0,16-16V80a16,16,0,0,0-16-16H48A48,48,0,0,0,0,112V464a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V336A16,16,0,0,0,432,320ZM488,0h-128c-21.37,0-32.05,25.91-17,41l35.73,35.73L135,320.37a24,24,0,0,0,0,34L157.67,377a24,24,0,0,0,34,0L435.28,133.32,471,169c15,15,41,4.5,41-17V24A24,24,0,0,0,488,0Z" }, "child": [] }] })(props);
+}
+function FaInfoCircle(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 512 512" }, "child": [{ "tag": "path", "attr": { "d": "M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z" }, "child": [] }] })(props);
+}
+function FaKey(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 512 512" }, "child": [{ "tag": "path", "attr": { "d": "M512 176.001C512 273.203 433.202 352 336 352c-11.22 0-22.19-1.062-32.827-3.069l-24.012 27.014A23.999 23.999 0 0 1 261.223 384H224v40c0 13.255-10.745 24-24 24h-40v40c0 13.255-10.745 24-24 24H24c-13.255 0-24-10.745-24-24v-78.059c0-6.365 2.529-12.47 7.029-16.971l161.802-161.802C163.108 213.814 160 195.271 160 176 160 78.798 238.797.001 335.999 0 433.488-.001 512 78.511 512 176.001zM336 128c0 26.51 21.49 48 48 48s48-21.49 48-48-21.49-48-48-48-48 21.49-48 48z" }, "child": [] }] })(props);
+}
+function FaLock(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 448 512" }, "child": [{ "tag": "path", "attr": { "d": "M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z" }, "child": [] }] })(props);
+}
+function FaNetworkWired(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 640 512" }, "child": [{ "tag": "path", "attr": { "d": "M640 264v-16c0-8.84-7.16-16-16-16H344v-40h72c17.67 0 32-14.33 32-32V32c0-17.67-14.33-32-32-32H224c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h72v40H16c-8.84 0-16 7.16-16 16v16c0 8.84 7.16 16 16 16h104v40H64c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h160c17.67 0 32-14.33 32-32V352c0-17.67-14.33-32-32-32h-56v-40h304v40h-56c-17.67 0-32 14.33-32 32v128c0 17.67 14.33 32 32 32h160c17.67 0 32-14.33 32-32V352c0-17.67-14.33-32-32-32h-56v-40h104c8.84 0 16-7.16 16-16zM256 128V64h128v64H256zm-64 320H96v-64h96v64zm352 0h-96v-64h96v64z" }, "child": [] }] })(props);
+}
+function FaPaintBrush(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 512 512" }, "child": [{ "tag": "path", "attr": { "d": "M167.02 309.34c-40.12 2.58-76.53 17.86-97.19 72.3-2.35 6.21-8 9.98-14.59 9.98-11.11 0-45.46-27.67-55.25-34.35C0 439.62 37.93 512 128 512c75.86 0 128-43.77 128-120.19 0-3.11-.65-6.08-.97-9.13l-88.01-73.34zM457.89 0c-15.16 0-29.37 6.71-40.21 16.45C213.27 199.05 192 203.34 192 257.09c0 13.7 3.25 26.76 8.73 38.7l63.82 53.18c7.21 1.8 14.64 3.03 22.39 3.03 62.11 0 98.11-45.47 211.16-256.46 7.38-14.35 13.9-29.85 13.9-45.99C512 20.64 486 0 457.89 0z" }, "child": [] }] })(props);
+}
+function FaRocket(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 512 512" }, "child": [{ "tag": "path", "attr": { "d": "M505.12019,19.09375c-1.18945-5.53125-6.65819-11-12.207-12.1875C460.716,0,435.507,0,410.40747,0,307.17523,0,245.26909,55.20312,199.05238,128H94.83772c-16.34763.01562-35.55658,11.875-42.88664,26.48438L2.51562,253.29688A28.4,28.4,0,0,0,0,264a24.00867,24.00867,0,0,0,24.00582,24H127.81618l-22.47457,22.46875c-11.36521,11.36133-12.99607,32.25781,0,45.25L156.24582,406.625c11.15623,11.1875,32.15619,13.15625,45.27726,0l22.47457-22.46875V488a24.00867,24.00867,0,0,0,24.00581,24,28.55934,28.55934,0,0,0,10.707-2.51562l98.72834-49.39063c14.62888-7.29687,26.50776-26.5,26.50776-42.85937V312.79688c72.59753-46.3125,128.03493-108.40626,128.03493-211.09376C512.07526,76.5,512.07526,51.29688,505.12019,19.09375ZM384.04033,168A40,40,0,1,1,424.05,128,40.02322,40.02322,0,0,1,384.04033,168Z" }, "child": [] }] })(props);
+}
+function FaSearch(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 512 512" }, "child": [{ "tag": "path", "attr": { "d": "M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z" }, "child": [] }] })(props);
+}
+function FaServer(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 512 512" }, "child": [{ "tag": "path", "attr": { "d": "M480 160H32c-17.673 0-32-14.327-32-32V64c0-17.673 14.327-32 32-32h448c17.673 0 32 14.327 32 32v64c0 17.673-14.327 32-32 32zm-48-88c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm-64 0c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm112 248H32c-17.673 0-32-14.327-32-32v-64c0-17.673 14.327-32 32-32h448c17.673 0 32 14.327 32 32v64c0 17.673-14.327 32-32 32zm-48-88c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm-64 0c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm112 248H32c-17.673 0-32-14.327-32-32v-64c0-17.673 14.327-32 32-32h448c17.673 0 32 14.327 32 32v64c0 17.673-14.327 32-32 32zm-48-88c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm-64 0c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24z" }, "child": [] }] })(props);
+}
+function FaShieldAlt(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 512 512" }, "child": [{ "tag": "path", "attr": { "d": "M466.5 83.7l-192-80a48.15 48.15 0 0 0-36.9 0l-192 80C27.7 91.1 16 108.6 16 128c0 198.5 114.5 335.7 221.5 380.3 11.8 4.9 25.1 4.9 36.9 0C360.1 472.6 496 349.3 496 128c0-19.4-11.7-36.9-29.5-44.3zM256.1 446.3l-.1-381 175.9 73.3c-3.3 151.4-82.1 261.1-175.8 307.7z" }, "child": [] }] })(props);
+}
+function FaSkull(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 512 512" }, "child": [{ "tag": "path", "attr": { "d": "M256 0C114.6 0 0 100.3 0 224c0 70.1 36.9 132.6 94.5 173.7 9.6 6.9 15.2 18.1 13.5 29.9l-9.4 66.2c-1.4 9.6 6 18.2 15.7 18.2H192v-56c0-4.4 3.6-8 8-8h16c4.4 0 8 3.6 8 8v56h64v-56c0-4.4 3.6-8 8-8h16c4.4 0 8 3.6 8 8v56h77.7c9.7 0 17.1-8.6 15.7-18.2l-9.4-66.2c-1.7-11.7 3.8-23 13.5-29.9C475.1 356.6 512 294.1 512 224 512 100.3 397.4 0 256 0zm-96 320c-35.3 0-64-28.7-64-64s28.7-64 64-64 64 28.7 64 64-28.7 64-64 64zm192 0c-35.3 0-64-28.7-64-64s28.7-64 64-64 64 28.7 64 64-28.7 64-64 64z" }, "child": [] }] })(props);
+}
+function FaTractor(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 640 512" }, "child": [{ "tag": "path", "attr": { "d": "M528 336c-48.6 0-88 39.4-88 88s39.4 88 88 88 88-39.4 88-88-39.4-88-88-88zm0 112c-13.23 0-24-10.77-24-24s10.77-24 24-24 24 10.77 24 24-10.77 24-24 24zm80-288h-64v-40.2c0-14.12 4.7-27.76 13.15-38.84 4.42-5.8 3.55-14.06-1.32-19.49L534.2 37.3c-6.66-7.45-18.32-6.92-24.7.78C490.58 60.9 480 89.81 480 119.8V160H377.67L321.58 29.14A47.914 47.914 0 0 0 277.45 0H144c-26.47 0-48 21.53-48 48v146.52c-8.63-6.73-20.96-6.46-28.89 1.47L36 227.1c-8.59 8.59-8.59 22.52 0 31.11l5.06 5.06c-4.99 9.26-8.96 18.82-11.91 28.72H22c-12.15 0-22 9.85-22 22v44c0 12.15 9.85 22 22 22h7.14c2.96 9.91 6.92 19.46 11.91 28.73l-5.06 5.06c-8.59 8.59-8.59 22.52 0 31.11L67.1 476c8.59 8.59 22.52 8.59 31.11 0l5.06-5.06c9.26 4.99 18.82 8.96 28.72 11.91V490c0 12.15 9.85 22 22 22h44c12.15 0 22-9.85 22-22v-7.14c9.9-2.95 19.46-6.92 28.72-11.91l5.06 5.06c8.59 8.59 22.52 8.59 31.11 0l31.11-31.11c8.59-8.59 8.59-22.52 0-31.11l-5.06-5.06c4.99-9.26 8.96-18.82 11.91-28.72H330c12.15 0 22-9.85 22-22v-6h80.54c21.91-28.99 56.32-48 95.46-48 18.64 0 36.07 4.61 51.8 12.2l50.82-50.82c6-6 9.37-14.14 9.37-22.63V192c.01-17.67-14.32-32-31.99-32zM176 416c-44.18 0-80-35.82-80-80s35.82-80 80-80 80 35.82 80 80-35.82 80-80 80zm22-256h-38V64h106.89l41.15 96H198z" }, "child": [] }] })(props);
+}
+function FaUsers(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 640 512" }, "child": [{ "tag": "path", "attr": { "d": "M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-223.7-13.4C161.5 263.1 145.6 256 128 256H64c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z" }, "child": [] }] })(props);
+}
+function FaWallet(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 512 512" }, "child": [{ "tag": "path", "attr": { "d": "M461.2 128H80c-8.84 0-16-7.16-16-16s7.16-16 16-16h384c8.84 0 16-7.16 16-16 0-26.51-21.49-48-48-48H64C28.65 32 0 60.65 0 96v320c0 35.35 28.65 64 64 64h397.2c28.02 0 50.8-21.53 50.8-48V176c0-26.47-22.78-48-50.8-48zM416 336c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32z" }, "child": [] }] })(props);
+}
+function FaWater(props) {
+  return GenIcon({ "attr": { "viewBox": "0 0 576 512" }, "child": [{ "tag": "path", "attr": { "d": "M562.1 383.9c-21.5-2.4-42.1-10.5-57.9-22.9-14.1-11.1-34.2-11.3-48.2 0-37.9 30.4-107.2 30.4-145.7-1.5-13.5-11.2-33-9.1-46.7 1.8-38 30.1-106.9 30-145.2-1.7-13.5-11.2-33.3-8.9-47.1 2-15.5 12.2-36 20.1-57.7 22.4-7.9.8-13.6 7.8-13.6 15.7v32.2c0 9.1 7.6 16.8 16.7 16 28.8-2.5 56.1-11.4 79.4-25.9 56.5 34.6 137 34.1 192 0 56.5 34.6 137 34.1 192 0 23.3 14.2 50.9 23.3 79.1 25.8 9.1.8 16.7-6.9 16.7-16v-31.6c.1-8-5.7-15.4-13.8-16.3zm0-144c-21.5-2.4-42.1-10.5-57.9-22.9-14.1-11.1-34.2-11.3-48.2 0-37.9 30.4-107.2 30.4-145.7-1.5-13.5-11.2-33-9.1-46.7 1.8-38 30.1-106.9 30-145.2-1.7-13.5-11.2-33.3-8.9-47.1 2-15.5 12.2-36 20.1-57.7 22.4-7.9.8-13.6 7.8-13.6 15.7v32.2c0 9.1 7.6 16.8 16.7 16 28.8-2.5 56.1-11.4 79.4-25.9 56.5 34.6 137 34.1 192 0 56.5 34.6 137 34.1 192 0 23.3 14.2 50.9 23.3 79.1 25.8 9.1.8 16.7-6.9 16.7-16v-31.6c.1-8-5.7-15.4-13.8-16.3zm0-144C540.6 93.4 520 85.4 504.2 73 490.1 61.9 470 61.7 456 73c-37.9 30.4-107.2 30.4-145.7-1.5-13.5-11.2-33-9.1-46.7 1.8-38 30.1-106.9 30-145.2-1.7-13.5-11.2-33.3-8.9-47.1 2-15.5 12.2-36 20.1-57.7 22.4-7.9.8-13.6 7.8-13.6 15.7v32.2c0 9.1 7.6 16.8 16.7 16 28.8-2.5 56.1-11.4 79.4-25.9 56.5 34.6 137 34.1 192 0 56.5 34.6 137 34.1 192 0 23.3 14.2 50.9 23.3 79.1 25.8 9.1.8 16.7-6.9 16.7-16v-31.6c.1-8-5.7-15.4-13.8-16.3z" }, "child": [] }] })(props);
+}
+function Header() {
+  const [isScrolled, setIsScrolled] = reactExports.useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = reactExports.useState(false);
+  const location = useLocation();
+  reactExports.useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+  const navLinks = [
+    { href: "/docs", label: "Developers" },
+    { href: "/technology", label: "Technology" },
+    { href: "/token", label: "Token" },
+    { href: "/community", label: "Community" },
+    { href: "/about", label: "About" }
+  ];
+  return /* @__PURE__ */ jsxRuntimeExports.jsx(
+    "header",
+    {
+      className: `fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-black/80 backdrop-blur-lg border-b border-white/10" : "bg-transparent"}`,
+      children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between h-16", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/", className: "flex items-center space-x-2 hover:scale-105 transition-transform duration-200", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: "https://raw.githubusercontent.com/dev-paxeer/paxeer-network-website-main/refs/heads/main/frontend/Untitled%20design%20(99).png", alt: "Logo", className: "w-35 h-15" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "hidden md:flex items-center space-x-8", children: navLinks.map((link) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Link,
+            {
+              to: link.href,
+              className: `text-sm font-medium transition-all duration-200 hover:text-[#35b7ff] hover:scale-105 ${location.pathname === link.href ? "text-[#35b7ff] text-glow" : "text-white/80"}`,
+              children: link.label
+            },
+            link.href
+          )) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "hidden md:block", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "input",
+              {
+                type: "text",
+                placeholder: "Search...",
+                className: "bg-[#1E1E2D] text-white pl-10 pr-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#35b7ff] w-64"
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(FaSearch, { className: "absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" })
+          ] }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "button",
+            {
+              className: "md:hidden p-2 hover:scale-110 transition-transform duration-200",
+              onClick: () => setIsMobileMenuOpen(!isMobileMenuOpen),
+              children: isMobileMenuOpen ? /* @__PURE__ */ jsxRuntimeExports.jsx(X, { size: 24 }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Menu, { size: 24 })
+            }
+          )
+        ] }),
+        isMobileMenuOpen && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:hidden absolute top-16 left-0 right-0 bg-black/95 backdrop-blur-lg border-t border-white/10 animate-in slide-in-from-top duration-200", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "px-4 py-6 space-y-4", children: [
+          navLinks.map((link) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Link,
+            {
+              to: link.href,
+              className: "block text-white/80 hover:text-[#35b7ff] transition-colors hover:translate-x-2 duration-200",
+              onClick: () => setIsMobileMenuOpen(false),
+              children: link.label
+            },
+            link.href
+          )),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "input",
+              {
+                type: "text",
+                placeholder: "Search...",
+                className: "bg-[#1E1E2D] text-white pl-10 pr-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#35b7ff] w-full"
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(FaSearch, { className: "absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" })
+          ] })
+        ] }) })
+      ] })
+    }
+  );
+}
+function Footer() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("footer", { className: "py-8 border-t border-white/10", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-center text-white/60", children: "© 2025 Paxeer Network. All rights reserved." }) }) });
+}
 function setRef(ref, value) {
   if (typeof ref === "function") {
     return ref(value);
@@ -17810,70 +18102,6 @@ function Button({
     }
   );
 }
-function Header() {
-  const [isScrolled, setIsScrolled] = reactExports.useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = reactExports.useState(false);
-  const location = useLocation();
-  reactExports.useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-  const navLinks = [
-    { href: "/docs", label: "Developers" },
-    { href: "/technology", label: "Technology" },
-    { href: "/token", label: "Token" },
-    { href: "/community", label: "Community" },
-    { href: "/about", label: "About" }
-  ];
-  return /* @__PURE__ */ jsxRuntimeExports.jsx(
-    "header",
-    {
-      className: `fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-black/80 backdrop-blur-lg border-b border-white/10" : "bg-transparent"}`,
-      children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between h-16", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/", className: "flex items-center space-x-2 hover:scale-105 transition-transform duration-200", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: "https://raw.githubusercontent.com/dev-paxeer/paxeer-network-website-main/refs/heads/main/frontend/Untitled%20design%20(99).png", alt: "Logo", className: "w-35 h-15" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "hidden md:flex items-center space-x-8", children: navLinks.map((link) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-            Link,
-            {
-              to: link.href,
-              className: `text-sm font-medium transition-all duration-200 hover:text-[#35b7ff] hover:scale-105 ${location.pathname === link.href ? "text-[#35b7ff] text-glow" : "text-white/80"}`,
-              children: link.label
-            },
-            link.href
-          )) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "hidden md:block", children: /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { className: "bg-[#35b7ff] hover:bg-[#35b7ff]/90 text-black font-medium glow-blue hover:scale-105 transition-transform duration-200", children: "Launch App" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "button",
-            {
-              className: "md:hidden p-2 hover:scale-110 transition-transform duration-200",
-              onClick: () => setIsMobileMenuOpen(!isMobileMenuOpen),
-              children: isMobileMenuOpen ? /* @__PURE__ */ jsxRuntimeExports.jsx(X, { size: 24 }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Menu, { size: 24 })
-            }
-          )
-        ] }),
-        isMobileMenuOpen && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "md:hidden absolute top-16 left-0 right-0 bg-black/95 backdrop-blur-lg border-t border-white/10 animate-in slide-in-from-top duration-200", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "px-4 py-6 space-y-4", children: [
-          navLinks.map((link) => /* @__PURE__ */ jsxRuntimeExports.jsx(
-            Link,
-            {
-              to: link.href,
-              className: "block text-white/80 hover:text-[#35b7ff] transition-colors hover:translate-x-2 duration-200",
-              onClick: () => setIsMobileMenuOpen(false),
-              children: link.label
-            },
-            link.href
-          )),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Button, { className: "w-full bg-[#35b7ff] hover:bg-[#35b7ff]/90 text-black font-medium mt-4 glow-blue hover:scale-105 transition-transform duration-200", children: "Launch App" })
-        ] }) })
-      ] })
-    }
-  );
-}
-function Footer() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsx("footer", { className: "py-8 border-t border-white/10", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-center text-white/60", children: "© 2025 Paxeer Network. All rights reserved." }) }) });
-}
 function GlassCard({ children, className, hover = true }) {
   return /* @__PURE__ */ jsxRuntimeExports.jsx(
     "div",
@@ -18878,14 +19106,14 @@ function DocsProtocol() {
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid lg:grid-cols-4 gap-8", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "lg:col-span-1", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sticky top-24", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(GlassCard, { className: "hover:scale-105 transition-transform duration-300", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-bold mb-4", children: "On This Page" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "space-y-2", children: navSections.map((section) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+        /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "space-y-2", children: navSections.map((section2) => /* @__PURE__ */ jsxRuntimeExports.jsx(
           "a",
           {
-            href: `#${section.toLowerCase().replace(/\s+/g, "-")}`,
+            href: `#${section2.toLowerCase().replace(/\s+/g, "-")}`,
             className: "block text-sm text-white/80 hover:text-[#35b7ff] transition-colors hover:translate-x-1 duration-200",
-            children: section
+            children: section2
           },
-          section
+          section2
         )) })
       ] }) }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "lg:col-span-3 space-y-12", children: [
@@ -19530,14 +19758,14 @@ function Technology() {
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid lg:grid-cols-4 gap-8", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "lg:col-span-1", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sticky top-24", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(GlassCard, { className: "hover:scale-105 transition-transform duration-300", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-bold mb-4", children: "On This Page" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "space-y-2", children: navSections.map((section) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+        /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "space-y-2", children: navSections.map((section2) => /* @__PURE__ */ jsxRuntimeExports.jsx(
           "a",
           {
-            href: `#${section.toLowerCase().replace(/\s+/g, "-")}`,
+            href: `#${section2.toLowerCase().replace(/\s+/g, "-")}`,
             className: "block text-sm text-white/80 hover:text-[#35b7ff] transition-colors hover:translate-x-1 duration-200",
-            children: section
+            children: section2
           },
-          section
+          section2
         )) })
       ] }) }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "lg:col-span-3 space-y-12", children: [
@@ -19636,6 +19864,1825 @@ function LoadingScreen() {
     ] })
   ] }) });
 }
+const container = "_container_eklg4_1";
+const main = "_main_eklg4_7";
+const title = "_title_eklg4_12";
+const description = "_description_eklg4_18";
+const grid = "_grid_eklg4_24";
+const card = "_card_eklg4_29";
+const section = "_section_eklg4_37";
+const styles = {
+  container,
+  main,
+  title,
+  description,
+  grid,
+  card,
+  section
+};
+const DeFiFundamentals = () => {
+  const [activeTab, setActiveTab] = reactExports.useState("crypto-basics");
+  const tabs = [
+    { id: "crypto-basics", name: "Crypto Fundamentals", icon: /* @__PURE__ */ jsxRuntimeExports.jsx(FaBitcoin, {}) },
+    { id: "defi-intro", name: "DeFi Introduction", icon: /* @__PURE__ */ jsxRuntimeExports.jsx(FaExchangeAlt, {}) },
+    { id: "token-ecosystem", name: "Token Ecosystem", icon: /* @__PURE__ */ jsxRuntimeExports.jsx(FaCoins, {}) },
+    { id: "dexs-liquidity", name: "DEXs & Liquidity", icon: /* @__PURE__ */ jsxRuntimeExports.jsx(FaWater, {}) },
+    { id: "token-launches", name: "Token Launches", icon: /* @__PURE__ */ jsxRuntimeExports.jsx(FaRocket, {}) }
+  ];
+  const topBlockchains = [
+    {
+      name: "Paxeer Network",
+      description: "Paxeer is an L2 solution combining Ethereum security, Arbitrum scalability and Celestia data availability",
+      type: "Layer 2",
+      marketCap: "$1.5B",
+      consensus: "Optimistic Rollup",
+      features: ["EVM Compatible", "Low Fees", "Fast Transactions", "Celestia DA"]
+    },
+    {
+      name: "Ethereum (ETH)",
+      description: "The leading smart contract platform that enables decentralized applications and DeFi",
+      type: "Layer 1",
+      marketCap: "$368B",
+      consensus: "Proof of Stake",
+      features: ["Smart Contracts", "dApps", "ERC-20 Tokens", "NFTs"]
+    },
+    {
+      name: "Bitcoin (BTC)",
+      description: "The original cryptocurrency that introduced blockchain technology",
+      type: "Layer 1",
+      marketCap: "$1.2T",
+      consensus: "Proof of Work",
+      features: ["Store of Value", "Digital Gold", "Limited Smart Contracts"]
+    }
+  ];
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Header, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: styles.main, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: styles.title, children: "DeFi Fundamentals" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex overflow-x-auto mb-8 border-b border-gray-700", children: tabs.map((tab) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "button",
+        {
+          onClick: () => setActiveTab(tab.id),
+          className: `flex items-center px-4 py-2 text-sm font-medium ${activeTab === tab.id ? "text-[#35b7ff] border-b-2 border-[#35b7ff]" : "text-gray-400 hover:text-white"}`,
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "mr-2", children: tab.icon }),
+            tab.name
+          ]
+        },
+        tab.id
+      )) }),
+      activeTab === "crypto-basics" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.section, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Blockchain Technology Overview" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Key Blockchains" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "overflow-x-auto", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { className: "w-full", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("thead", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { className: "border-b border-white/10", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "text-left py-3 px-4", children: "Network" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "text-left py-3 px-4", children: "Description" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "text-left py-3 px-4", children: "Type" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "text-left py-3 px-4", children: "Market Cap" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "text-left py-3 px-4", children: "Features" })
+            ] }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("tbody", { children: topBlockchains.map((blockchain, index) => /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { className: "border-b border-white/5 hover:bg-white/5 transition-colors", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "py-3 px-4 font-medium", children: blockchain.name }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "py-3 px-4", children: blockchain.description }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "py-3 px-4", children: blockchain.type }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "py-3 px-4", children: blockchain.marketCap }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "py-3 px-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "list-disc list-inside", children: blockchain.features.map((feature, i) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: feature }, i)) }) })
+            ] }, index)) })
+          ] }) })
+        ] })
+      ] }),
+      activeTab === "defi-intro" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.section, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Decentralized Finance (DeFi)" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "What is DeFi?" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "DeFi refers to financial applications built on blockchain technologies, typically using smart contracts. These applications aim to recreate traditional financial systems (lending, borrowing, trading) in a decentralized manner without intermediaries." }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "mt-4", children: "Key DeFi Applications on Paxeer" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-2 mt-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Decentralized Exchanges (DEXs)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Lending and Borrowing Protocols" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Yield Farming and Staking" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Derivatives and Synthetic Assets" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Insurance Protocols" })
+          ] })
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
+  ] });
+};
+const Developers = () => {
+  reactExports.useEffect(() => {
+    document.title = "Developer Resources | Paxeer Network";
+    const meta = document.createElement("meta");
+    meta.name = "description";
+    meta.content = "Essential resources for developers building on Paxeer Network including security guides, code patterns, and RPC endpoints.";
+    document.head.appendChild(meta);
+    return () => {
+      document.head.removeChild(meta);
+    };
+  }, []);
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Header, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: styles.main, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: styles.title, children: "Developer Resources" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: styles.description, children: "Build secure, scalable applications on Paxeer Network with our developer tools and resources." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.grid, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center mb-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 bg-[#35b7ff]/10 rounded-lg flex items-center justify-center mr-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(FaShieldAlt, { className: "text-[#35b7ff] text-xl" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Security Best Practices" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Comprehensive guidelines for developing secure smart contracts and conducting audits." })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center mb-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 bg-[#35b7ff]/10 rounded-lg flex items-center justify-center mr-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(FaCode, { className: "text-[#35b7ff] text-xl" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Code Patterns" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Battle-tested design patterns for common DeFi mechanisms and smart contract development." })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center mb-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 bg-[#35b7ff]/10 rounded-lg flex items-center justify-center mr-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(FaUsers, { className: "text-[#35b7ff] text-xl" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Community Guidelines" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Frameworks for building transparent developer communities and governance models." })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center mb-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 bg-[#35b7ff]/10 rounded-lg flex items-center justify-center mr-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(FaServer, { className: "text-[#35b7ff] text-xl" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "RPC Endpoints" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Directory of RPC endpoints for Paxeer Network and connected chains." })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center mb-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 bg-[#35b7ff]/10 rounded-lg flex items-center justify-center mr-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(FaBook, { className: "text-[#35b7ff] text-xl" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Documentation" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Technical documentation and API references for Paxeer Network." })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center mb-4", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-12 h-12 bg-[#35b7ff]/10 rounded-lg flex items-center justify-center mr-4", children: /* @__PURE__ */ jsxRuntimeExports.jsx(FaGithub, { className: "text-[#35b7ff] text-xl" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "GitHub Repos" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Official repositories, SDKs, and example projects for Paxeer development." })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-3xl mx-auto mt-12 p-6 bg-[#1e1e2d] rounded-lg border border-[#2d2d3a]", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-2xl font-bold mb-4 text-center", children: "Building on Paxeer" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "mb-4", children: "Paxeer Network provides developers with a scalable, secure platform to build next-generation decentralized applications. As an L2 solution combining Ethereum security with high throughput and low fees, Paxeer offers the ideal environment for DeFi, NFTs, and Web3 innovation." }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "We encourage developers to prioritize security, transparency, and sustainable tokenomics in their projects. The Paxeer Foundation provides grants, technical support, and community resources to help quality projects succeed." })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
+  ] });
+};
+const RPCEndpoints = () => {
+  const [searchQuery, setSearchQuery] = reactExports.useState("");
+  const [selectedType, setSelectedType] = reactExports.useState("all");
+  const paxeerEndpoints = [
+    { name: "Paxeer Mainnet RPC", url: "https://rpc.paxeer.network", type: "public" },
+    { name: "Paxeer WebSocket", url: "wss://ws.paxeer.network", type: "websocket" },
+    { name: "Paxeer Archive Node", url: "https://archive.paxeer.network", type: "public" },
+    { name: "Ankr Paxeer RPC", url: "https://rpc.ankr.com/paxeer", type: "provider" },
+    { name: "Run Your Own Node", url: "https://docs.paxeer.network/node/run", type: "setup" }
+  ];
+  const filteredEndpoints = paxeerEndpoints.filter((endpoint) => {
+    const matchesSearch = searchQuery === "" || endpoint.name.toLowerCase().includes(searchQuery.toLowerCase()) || endpoint.url.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesType = selectedType === "all" || endpoint.type === selectedType;
+    return matchesSearch && matchesType;
+  });
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("title", { children: "RPC Endpoints | Paxeer Network" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "meta",
+        {
+          name: "description",
+          content: "Comprehensive directory of RPC endpoints for Paxeer Network and connected chains"
+        }
+      )
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Header, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: styles.main, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: styles.title, children: "RPC Endpoints Directory" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: styles.description, children: "Connect to Paxeer Network and supported chains with these reliable RPC providers" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full max-w-2xl mb-8", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col md:flex-row gap-4 mb-4", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative flex-1", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "input",
+              {
+                type: "text",
+                placeholder: "Search endpoints...",
+                className: "w-full px-4 py-3 bg-[#1e1e2d] rounded-lg border border-[#2d2d3a] focus:outline-none focus:ring-2 focus:ring-[#35b7ff] text-white pl-10",
+                value: searchQuery,
+                onChange: (e) => setSearchQuery(e.target.value)
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(FaSearch, { className: "absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "select",
+            {
+              className: "px-4 py-3 bg-[#1e1e2d] rounded-lg border border-[#2d2d3a] focus:outline-none focus:ring-2 focus:ring-[#35b7ff] text-white",
+              value: selectedType,
+              onChange: (e) => setSelectedType(e.target.value),
+              children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "all", children: "All Types" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "provider", children: "Service Providers" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "public", children: "Public Endpoints" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "websocket", children: "WebSocket" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "setup", children: "Setup Your Own" })
+              ]
+            }
+          )
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-sm text-gray-400", children: [
+          "Showing ",
+          filteredEndpoints.length,
+          " of ",
+          paxeerEndpoints.length,
+          " endpoints"
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full max-w-4xl mb-12", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center mb-6", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-8 h-8 bg-[#35b7ff] rounded-full flex items-center justify-center mr-3", children: /* @__PURE__ */ jsxRuntimeExports.jsx(FaEthereum, { className: "text-white" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-2xl font-bold text-white", children: "Paxeer Network" })
+        ] }),
+        filteredEndpoints.length > 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid md:grid-cols-2 gap-4", children: filteredEndpoints.map((endpoint, index) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-[#1e1e2d] p-4 rounded-lg border border-[#2d2d3a] hover:border-[#35b7ff]/50 transition-colors", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-medium text-white mb-2", children: endpoint.name }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex items-center", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "a",
+            {
+              href: endpoint.url,
+              target: "_blank",
+              rel: "noopener noreferrer",
+              className: "text-[#35b7ff] hover:text-[#35b7ff]/80 text-sm flex items-center",
+              children: [
+                endpoint.url.length > 30 ? `${endpoint.url.substring(0, 30)}...` : endpoint.url,
+                /* @__PURE__ */ jsxRuntimeExports.jsx(FaExternalLinkAlt, { size: 12, className: "ml-2" })
+              ]
+            }
+          ) })
+        ] }, index)) }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-[#1e1e2d] p-6 rounded-lg border border-[#2d2d3a] text-center", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(FaInfoCircle, { className: "mx-auto text-[#35b7ff] mb-2", size: 24 }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "No endpoints match your search criteria" })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full max-w-4xl bg-[#1e1e2d] p-6 rounded-lg border border-[#2d2d3a]", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-xl font-bold text-white mb-4", children: "Additional Resources" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-2 text-gray-300", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "For high availability, consider using multiple RPC endpoints in your application" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Production applications should use authenticated endpoints from service providers" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Monitor your RPC usage to avoid rate limits" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "For development, consider running a local node for maximum control" })
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
+  ] });
+};
+const SecurityGuide = () => {
+  const [activeTab, setActiveTab] = reactExports.useState("basics");
+  const tabs = [
+    { id: "basics", name: "Security Basics", icon: /* @__PURE__ */ jsxRuntimeExports.jsx(FaShieldAlt, {}) },
+    { id: "approvals", name: "Token Approvals", icon: /* @__PURE__ */ jsxRuntimeExports.jsx(FaKey, {}) },
+    { id: "scams", name: "Common Scams", icon: /* @__PURE__ */ jsxRuntimeExports.jsx(FaExclamationTriangle, {}) },
+    { id: "recovery", name: "Scam Recovery", icon: /* @__PURE__ */ jsxRuntimeExports.jsx(FaCheckCircle, {}) }
+  ];
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("title", { children: "Security Guide | Paxeer Network" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "meta",
+      {
+        name: "description",
+        content: "Essential security practices for protecting your crypto assets on Paxeer Network"
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Header, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: styles.main, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: styles.title, children: "Security Guide" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: styles.description, children: "Protect your assets with these essential security practices" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex overflow-x-auto mb-8 border-b border-gray-700", children: tabs.map((tab) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "button",
+        {
+          onClick: () => setActiveTab(tab.id),
+          className: `flex items-center px-4 py-2 text-sm font-medium ${activeTab === tab.id ? "text-[#35b7ff] border-b-2 border-[#35b7ff]" : "text-gray-400 hover:text-white"}`,
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "mr-2", children: tab.icon }),
+            tab.name
+          ]
+        },
+        tab.id
+      )) }),
+      activeTab === "basics" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.section, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Essential Security Practices" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Wallet Security" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Use a hardware wallet for significant holdings" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Never share your seed phrase or private keys" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Store your seed phrase securely offline" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Use separate wallets for different purposes" })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Transaction Safety" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Always verify transaction details before confirming" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Double-check recipient addresses" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Be cautious with contract interactions" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Use test transactions for large amounts" })
+          ] })
+        ] })
+      ] }),
+      activeTab === "approvals" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.section, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Managing Token Approvals" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Understanding Approvals" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Token approvals allow smart contracts to spend your tokens. While necessary for DeFi, excessive approvals pose security risks." })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Approval Best Practices" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Regularly review and revoke unused approvals" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Use limited approvals instead of unlimited when possible" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Be cautious when approving new contracts" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Use a dedicated wallet for DeFi interactions" })
+          ] })
+        ] })
+      ] }),
+      activeTab === "scams" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.section, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Recognizing Common Scams" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Phishing Attacks" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Fake websites mimicking legitimate services" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Emails or messages asking for your seed phrase" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Impersonation of support staff in social media" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Always verify URLs and official channels" })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Malicious Contracts" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Contracts with hidden drainer functions" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Fake token approvals" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Always research contracts before interacting" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Use tools to check contract code" })
+          ] })
+        ] })
+      ] }),
+      activeTab === "recovery" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.section, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Recovering From Scams" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Immediate Actions" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("ol", { className: "list-decimal pl-5 space-y-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Transfer remaining funds to a new secure wallet" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Revoke all token approvals for the compromised wallet" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Document all suspicious transactions" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Report the incident to relevant authorities" })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Preventing Future Incidents" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Use hardware wallets for significant holdings" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Enable transaction previews in your wallet" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Keep software and extensions updated" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Educate yourself on emerging scam tactics" })
+          ] })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full max-w-4xl mt-8 bg-[#1e1e2d] p-6 rounded-lg border border-[#2d2d3a]", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-xl font-bold text-white mb-4", children: "Additional Resources" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-2 text-gray-300", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://docs.paxeer.network/security", className: "text-[#35b7ff] hover:underline", children: "Paxeer Security Documentation" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://revoke.cash", className: "text-[#35b7ff] hover:underline", children: "Token Approval Revocation Tool" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://etherscan.io/tokenapprovalchecker", className: "text-[#35b7ff] hover:underline", children: "Approval Checker" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://community.paxeer.network/security", className: "text-[#35b7ff] hover:underline", children: "Paxeer Security Forum" }) })
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
+  ] });
+};
+const TradersGuide = () => {
+  const [activeScam, setActiveScam] = reactExports.useState("rug-pull");
+  const scamTypes = [
+    {
+      id: "rug-pull",
+      name: "Rug Pull",
+      icon: /* @__PURE__ */ jsxRuntimeExports.jsx(FaSkull, { className: "text-red-500" }),
+      description: "Developers abandon the project after raising funds, causing the token to crash.",
+      warningSigns: [
+        "Anonymous team with no verifiable history",
+        "Unverified contracts",
+        "Large percentage of tokens held by developers",
+        "Liquidity not locked"
+      ],
+      prevention: [
+        "Check token distribution",
+        "Verify liquidity lock status",
+        "Research the team thoroughly",
+        "Be skeptical of unrealistic returns"
+      ]
+    },
+    {
+      id: "pump-dump",
+      name: "Pump & Dump",
+      icon: /* @__PURE__ */ jsxRuntimeExports.jsx(FaRocket, { className: "text-orange-500" }),
+      description: "Coordinated efforts to artificially inflate price before selling off holdings.",
+      warningSigns: [
+        "Sudden price spikes without news",
+        "Influencer promotions with no substance",
+        "Excessive hype on social media",
+        'Urgent "buy now" messaging'
+      ],
+      prevention: [
+        "Research fundamentals not hype",
+        "Avoid FOMO buying",
+        "Check trading volume patterns",
+        "Look for real development progress"
+      ]
+    },
+    {
+      id: "farming",
+      name: "Yield Farming Scams",
+      icon: /* @__PURE__ */ jsxRuntimeExports.jsx(FaTractor, { className: "text-green-500" }),
+      description: "Projects offering unsustainable yields to attract liquidity before collapsing.",
+      warningSigns: [
+        "Unsustainably high APY (1000%+)",
+        "Vague tokenomics",
+        "Inflationary rewards model",
+        "Anonymous teams with past failed projects"
+      ],
+      prevention: [
+        "Understand the yield source",
+        "Research token emission schedule",
+        "Look for protocol revenue generation",
+        "Avoid projects with no long-term plan"
+      ]
+    },
+    {
+      id: "platform-scams",
+      name: "Platform Scams",
+      icon: /* @__PURE__ */ jsxRuntimeExports.jsx(FaBalanceScale, { className: "text-blue-500" }),
+      description: "Exploiting launch platforms with fake activity and manipulated trading.",
+      warningSigns: [
+        "Wash trading between same wallets",
+        "Artificial volume creation",
+        "New wallets suddenly trading actively",
+        "Identical tokens with different contracts"
+      ],
+      prevention: [
+        "Investigate wallet activity",
+        "Look for unnatural trade patterns",
+        "Verify contracts thoroughly",
+        "Check liquidity depth"
+      ]
+    },
+    {
+      id: "kol-scams",
+      name: "KOL Scams",
+      icon: /* @__PURE__ */ jsxRuntimeExports.jsx(FaChartLine, { className: "text-yellow-500" }),
+      description: "Influencers promoting tokens they hold to profit from followers buying in.",
+      warningSigns: [
+        "Suspiciously high win rates",
+        "No disclosure of positions",
+        'Urgent "last chance" messaging',
+        "Deleted unsuccessful calls"
+      ],
+      prevention: [
+        "Assume influencers hold positions",
+        "Look for transparent disclosures",
+        "Verify track records",
+        "Develop your own analysis skills"
+      ]
+    }
+  ];
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("title", { children: "Traders Guide | Paxeer Network" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "meta",
+        {
+          name: "description",
+          content: "Learn to identify and avoid common crypto trading scams on Paxeer Network"
+        }
+      )
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Header, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: styles.main, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: styles.title, children: "Traders Guide" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: styles.description, children: "Recognize and avoid common scams in the crypto trading space" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex overflow-x-auto mb-8 border-b border-gray-700", children: scamTypes.map((scam) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "button",
+        {
+          onClick: () => setActiveScam(scam.id),
+          className: `flex items-center px-4 py-2 text-sm font-medium ${activeScam === scam.id ? "text-[#35b7ff] border-b-2 border-[#35b7ff]" : "text-gray-400 hover:text-white"}`,
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "mr-2", children: scam.icon }),
+            scam.name
+          ]
+        },
+        scam.id
+      )) }),
+      scamTypes.map((scam) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "div",
+        {
+          className: `${styles.section} ${activeScam === scam.id ? "block" : "hidden"}`,
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: scam.name }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Description" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: scam.description })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid md:grid-cols-2 gap-4", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Warning Signs" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "list-disc pl-5 space-y-2", children: scam.warningSigns.map((sign, i) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: sign }, i)) })
+              ] }),
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Prevention" }),
+                /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "list-disc pl-5 space-y-2", children: scam.prevention.map((tip, i) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: tip }, i)) })
+              ] })
+            ] })
+          ]
+        },
+        scam.id
+      )),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full max-w-4xl mt-8 bg-[#1e1e2d] p-6 rounded-lg border border-[#2d2d3a]", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-xl font-bold text-white mb-4", children: "Trading Tools" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid md:grid-cols-2 gap-4", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-4 bg-[#2d2d3a] rounded-lg hover:bg-[#35b7ff]/10 transition-colors", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-medium text-white mb-2", children: "Token Analyzer" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-gray-300 text-sm", children: "Check token distribution and contract risks" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-4 bg-[#2d2d3a] rounded-lg hover:bg-[#35b7ff]/10 transition-colors", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-medium text-white mb-2", children: "Approval Checker" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-gray-300 text-sm", children: "Review and revoke token approvals" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-4 bg-[#2d2d3a] rounded-lg hover:bg-[#35b7ff]/10 transition-colors", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-medium text-white mb-2", children: "Liquidity Checker" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-gray-300 text-sm", children: "Analyze pool liquidity and depth" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "p-4 bg-[#2d2d3a] rounded-lg hover:bg-[#35b7ff]/10 transition-colors", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-medium text-white mb-2", children: "Wallet Inspector" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-gray-300 text-sm", children: "Check wallet transaction history" })
+          ] })
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
+  ] });
+};
+var propTypes = { exports: {} };
+var ReactPropTypesSecret_1;
+var hasRequiredReactPropTypesSecret;
+function requireReactPropTypesSecret() {
+  if (hasRequiredReactPropTypesSecret) return ReactPropTypesSecret_1;
+  hasRequiredReactPropTypesSecret = 1;
+  var ReactPropTypesSecret = "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED";
+  ReactPropTypesSecret_1 = ReactPropTypesSecret;
+  return ReactPropTypesSecret_1;
+}
+var factoryWithThrowingShims;
+var hasRequiredFactoryWithThrowingShims;
+function requireFactoryWithThrowingShims() {
+  if (hasRequiredFactoryWithThrowingShims) return factoryWithThrowingShims;
+  hasRequiredFactoryWithThrowingShims = 1;
+  var ReactPropTypesSecret = /* @__PURE__ */ requireReactPropTypesSecret();
+  function emptyFunction() {
+  }
+  function emptyFunctionWithReset() {
+  }
+  emptyFunctionWithReset.resetWarningCache = emptyFunction;
+  factoryWithThrowingShims = function() {
+    function shim(props, propName, componentName, location, propFullName, secret) {
+      if (secret === ReactPropTypesSecret) {
+        return;
+      }
+      var err = new Error(
+        "Calling PropTypes validators directly is not supported by the `prop-types` package. Use PropTypes.checkPropTypes() to call them. Read more at http://fb.me/use-check-prop-types"
+      );
+      err.name = "Invariant Violation";
+      throw err;
+    }
+    shim.isRequired = shim;
+    function getShim() {
+      return shim;
+    }
+    var ReactPropTypes = {
+      array: shim,
+      bigint: shim,
+      bool: shim,
+      func: shim,
+      number: shim,
+      object: shim,
+      string: shim,
+      symbol: shim,
+      any: shim,
+      arrayOf: getShim,
+      element: shim,
+      elementType: shim,
+      instanceOf: getShim,
+      node: shim,
+      objectOf: getShim,
+      oneOf: getShim,
+      oneOfType: getShim,
+      shape: getShim,
+      exact: getShim,
+      checkPropTypes: emptyFunctionWithReset,
+      resetWarningCache: emptyFunction
+    };
+    ReactPropTypes.PropTypes = ReactPropTypes;
+    return ReactPropTypes;
+  };
+  return factoryWithThrowingShims;
+}
+var hasRequiredPropTypes;
+function requirePropTypes() {
+  if (hasRequiredPropTypes) return propTypes.exports;
+  hasRequiredPropTypes = 1;
+  {
+    propTypes.exports = /* @__PURE__ */ requireFactoryWithThrowingShims()();
+  }
+  return propTypes.exports;
+}
+var propTypesExports = /* @__PURE__ */ requirePropTypes();
+const PropTypes = /* @__PURE__ */ getDefaultExportFromCjs(propTypesExports);
+var lib;
+var hasRequiredLib;
+function requireLib() {
+  if (hasRequiredLib) return lib;
+  hasRequiredLib = 1;
+  function _interopDefault(ex) {
+    return ex && typeof ex === "object" && "default" in ex ? ex["default"] : ex;
+  }
+  var React2 = requireReact();
+  var React__default = _interopDefault(React2);
+  function _defineProperty2(obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, {
+        value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+      });
+    } else {
+      obj[key] = value;
+    }
+    return obj;
+  }
+  function _inheritsLoose(subClass, superClass) {
+    subClass.prototype = Object.create(superClass.prototype);
+    subClass.prototype.constructor = subClass;
+    subClass.__proto__ = superClass;
+  }
+  var canUseDOM = !!(typeof window !== "undefined" && window.document && window.document.createElement);
+  function withSideEffect2(reducePropsToState3, handleStateChangeOnClient, mapStateOnServer3) {
+    if (typeof reducePropsToState3 !== "function") {
+      throw new Error("Expected reducePropsToState to be a function.");
+    }
+    if (typeof handleStateChangeOnClient !== "function") {
+      throw new Error("Expected handleStateChangeOnClient to be a function.");
+    }
+    if (typeof mapStateOnServer3 !== "undefined" && typeof mapStateOnServer3 !== "function") {
+      throw new Error("Expected mapStateOnServer to either be undefined or a function.");
+    }
+    function getDisplayName(WrappedComponent) {
+      return WrappedComponent.displayName || WrappedComponent.name || "Component";
+    }
+    return function wrap(WrappedComponent) {
+      if (typeof WrappedComponent !== "function") {
+        throw new Error("Expected WrappedComponent to be a React component.");
+      }
+      var mountedInstances = [];
+      var state;
+      function emitChange() {
+        state = reducePropsToState3(mountedInstances.map(function(instance) {
+          return instance.props;
+        }));
+        if (SideEffect.canUseDOM) {
+          handleStateChangeOnClient(state);
+        } else if (mapStateOnServer3) {
+          state = mapStateOnServer3(state);
+        }
+      }
+      var SideEffect = /* @__PURE__ */ (function(_PureComponent) {
+        _inheritsLoose(SideEffect2, _PureComponent);
+        function SideEffect2() {
+          return _PureComponent.apply(this, arguments) || this;
+        }
+        SideEffect2.peek = function peek() {
+          return state;
+        };
+        SideEffect2.rewind = function rewind() {
+          if (SideEffect2.canUseDOM) {
+            throw new Error("You may only call rewind() on the server. Call peek() to read the current state.");
+          }
+          var recordedState = state;
+          state = void 0;
+          mountedInstances = [];
+          return recordedState;
+        };
+        var _proto = SideEffect2.prototype;
+        _proto.UNSAFE_componentWillMount = function UNSAFE_componentWillMount() {
+          mountedInstances.push(this);
+          emitChange();
+        };
+        _proto.componentDidUpdate = function componentDidUpdate() {
+          emitChange();
+        };
+        _proto.componentWillUnmount = function componentWillUnmount() {
+          var index = mountedInstances.indexOf(this);
+          mountedInstances.splice(index, 1);
+          emitChange();
+        };
+        _proto.render = function render() {
+          return React__default.createElement(WrappedComponent, this.props);
+        };
+        return SideEffect2;
+      })(React2.PureComponent);
+      _defineProperty2(SideEffect, "displayName", "SideEffect(" + getDisplayName(WrappedComponent) + ")");
+      _defineProperty2(SideEffect, "canUseDOM", canUseDOM);
+      return SideEffect;
+    };
+  }
+  lib = withSideEffect2;
+  return lib;
+}
+var libExports = requireLib();
+const withSideEffect = /* @__PURE__ */ getDefaultExportFromCjs(libExports);
+var reactFastCompare;
+var hasRequiredReactFastCompare;
+function requireReactFastCompare() {
+  if (hasRequiredReactFastCompare) return reactFastCompare;
+  hasRequiredReactFastCompare = 1;
+  var hasElementType = typeof Element !== "undefined";
+  var hasMap = typeof Map === "function";
+  var hasSet = typeof Set === "function";
+  var hasArrayBuffer = typeof ArrayBuffer === "function" && !!ArrayBuffer.isView;
+  function equal(a, b) {
+    if (a === b) return true;
+    if (a && b && typeof a == "object" && typeof b == "object") {
+      if (a.constructor !== b.constructor) return false;
+      var length, i, keys;
+      if (Array.isArray(a)) {
+        length = a.length;
+        if (length != b.length) return false;
+        for (i = length; i-- !== 0; )
+          if (!equal(a[i], b[i])) return false;
+        return true;
+      }
+      var it;
+      if (hasMap && a instanceof Map && b instanceof Map) {
+        if (a.size !== b.size) return false;
+        it = a.entries();
+        while (!(i = it.next()).done)
+          if (!b.has(i.value[0])) return false;
+        it = a.entries();
+        while (!(i = it.next()).done)
+          if (!equal(i.value[1], b.get(i.value[0]))) return false;
+        return true;
+      }
+      if (hasSet && a instanceof Set && b instanceof Set) {
+        if (a.size !== b.size) return false;
+        it = a.entries();
+        while (!(i = it.next()).done)
+          if (!b.has(i.value[0])) return false;
+        return true;
+      }
+      if (hasArrayBuffer && ArrayBuffer.isView(a) && ArrayBuffer.isView(b)) {
+        length = a.length;
+        if (length != b.length) return false;
+        for (i = length; i-- !== 0; )
+          if (a[i] !== b[i]) return false;
+        return true;
+      }
+      if (a.constructor === RegExp) return a.source === b.source && a.flags === b.flags;
+      if (a.valueOf !== Object.prototype.valueOf && typeof a.valueOf === "function" && typeof b.valueOf === "function") return a.valueOf() === b.valueOf();
+      if (a.toString !== Object.prototype.toString && typeof a.toString === "function" && typeof b.toString === "function") return a.toString() === b.toString();
+      keys = Object.keys(a);
+      length = keys.length;
+      if (length !== Object.keys(b).length) return false;
+      for (i = length; i-- !== 0; )
+        if (!Object.prototype.hasOwnProperty.call(b, keys[i])) return false;
+      if (hasElementType && a instanceof Element) return false;
+      for (i = length; i-- !== 0; ) {
+        if ((keys[i] === "_owner" || keys[i] === "__v" || keys[i] === "__o") && a.$$typeof) {
+          continue;
+        }
+        if (!equal(a[keys[i]], b[keys[i]])) return false;
+      }
+      return true;
+    }
+    return a !== a && b !== b;
+  }
+  reactFastCompare = function isEqual2(a, b) {
+    try {
+      return equal(a, b);
+    } catch (error) {
+      if ((error.message || "").match(/stack|recursion/i)) {
+        console.warn("react-fast-compare cannot handle circular refs");
+        return false;
+      }
+      throw error;
+    }
+  };
+  return reactFastCompare;
+}
+var reactFastCompareExports = requireReactFastCompare();
+const isEqual = /* @__PURE__ */ getDefaultExportFromCjs(reactFastCompareExports);
+/*
+object-assign
+(c) Sindre Sorhus
+@license MIT
+*/
+var objectAssign$1;
+var hasRequiredObjectAssign;
+function requireObjectAssign() {
+  if (hasRequiredObjectAssign) return objectAssign$1;
+  hasRequiredObjectAssign = 1;
+  var getOwnPropertySymbols = Object.getOwnPropertySymbols;
+  var hasOwnProperty = Object.prototype.hasOwnProperty;
+  var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+  function toObject(val) {
+    if (val === null || val === void 0) {
+      throw new TypeError("Object.assign cannot be called with null or undefined");
+    }
+    return Object(val);
+  }
+  function shouldUseNative() {
+    try {
+      if (!Object.assign) {
+        return false;
+      }
+      var test1 = new String("abc");
+      test1[5] = "de";
+      if (Object.getOwnPropertyNames(test1)[0] === "5") {
+        return false;
+      }
+      var test2 = {};
+      for (var i = 0; i < 10; i++) {
+        test2["_" + String.fromCharCode(i)] = i;
+      }
+      var order2 = Object.getOwnPropertyNames(test2).map(function(n) {
+        return test2[n];
+      });
+      if (order2.join("") !== "0123456789") {
+        return false;
+      }
+      var test3 = {};
+      "abcdefghijklmnopqrst".split("").forEach(function(letter) {
+        test3[letter] = letter;
+      });
+      if (Object.keys(Object.assign({}, test3)).join("") !== "abcdefghijklmnopqrst") {
+        return false;
+      }
+      return true;
+    } catch (err) {
+      return false;
+    }
+  }
+  objectAssign$1 = shouldUseNative() ? Object.assign : function(target, source) {
+    var from;
+    var to = toObject(target);
+    var symbols;
+    for (var s = 1; s < arguments.length; s++) {
+      from = Object(arguments[s]);
+      for (var key in from) {
+        if (hasOwnProperty.call(from, key)) {
+          to[key] = from[key];
+        }
+      }
+      if (getOwnPropertySymbols) {
+        symbols = getOwnPropertySymbols(from);
+        for (var i = 0; i < symbols.length; i++) {
+          if (propIsEnumerable.call(from, symbols[i])) {
+            to[symbols[i]] = from[symbols[i]];
+          }
+        }
+      }
+    }
+    return to;
+  };
+  return objectAssign$1;
+}
+var objectAssignExports = requireObjectAssign();
+const objectAssign = /* @__PURE__ */ getDefaultExportFromCjs(objectAssignExports);
+var ATTRIBUTE_NAMES = {
+  BODY: "bodyAttributes",
+  HTML: "htmlAttributes",
+  TITLE: "titleAttributes"
+};
+var TAG_NAMES = {
+  BASE: "base",
+  BODY: "body",
+  HEAD: "head",
+  HTML: "html",
+  LINK: "link",
+  META: "meta",
+  NOSCRIPT: "noscript",
+  SCRIPT: "script",
+  STYLE: "style",
+  TITLE: "title"
+};
+Object.keys(TAG_NAMES).map(function(name) {
+  return TAG_NAMES[name];
+});
+var TAG_PROPERTIES = {
+  CHARSET: "charset",
+  CSS_TEXT: "cssText",
+  HREF: "href",
+  HTTPEQUIV: "http-equiv",
+  INNER_HTML: "innerHTML",
+  ITEM_PROP: "itemprop",
+  NAME: "name",
+  PROPERTY: "property",
+  REL: "rel",
+  SRC: "src",
+  TARGET: "target"
+};
+var REACT_TAG_MAP = {
+  accesskey: "accessKey",
+  charset: "charSet",
+  class: "className",
+  contenteditable: "contentEditable",
+  contextmenu: "contextMenu",
+  "http-equiv": "httpEquiv",
+  itemprop: "itemProp",
+  tabindex: "tabIndex"
+};
+var HELMET_PROPS = {
+  DEFAULT_TITLE: "defaultTitle",
+  DEFER: "defer",
+  ENCODE_SPECIAL_CHARACTERS: "encodeSpecialCharacters",
+  ON_CHANGE_CLIENT_STATE: "onChangeClientState",
+  TITLE_TEMPLATE: "titleTemplate"
+};
+var HTML_TAG_MAP = Object.keys(REACT_TAG_MAP).reduce(function(obj, key) {
+  obj[REACT_TAG_MAP[key]] = key;
+  return obj;
+}, {});
+var SELF_CLOSING_TAGS = [TAG_NAMES.NOSCRIPT, TAG_NAMES.SCRIPT, TAG_NAMES.STYLE];
+var HELMET_ATTRIBUTE = "data-react-helmet";
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function(obj) {
+  return typeof obj;
+} : function(obj) {
+  return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+};
+var classCallCheck = function(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
+  }
+};
+var createClass = /* @__PURE__ */ (function() {
+  function defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
+  return function(Constructor, protoProps, staticProps) {
+    if (protoProps) defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) defineProperties(Constructor, staticProps);
+    return Constructor;
+  };
+})();
+var _extends = Object.assign || function(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i];
+    for (var key in source) {
+      if (Object.prototype.hasOwnProperty.call(source, key)) {
+        target[key] = source[key];
+      }
+    }
+  }
+  return target;
+};
+var inherits = function(subClass, superClass) {
+  if (typeof superClass !== "function" && superClass !== null) {
+    throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+  }
+  subClass.prototype = Object.create(superClass && superClass.prototype, {
+    constructor: {
+      value: subClass,
+      enumerable: false,
+      writable: true,
+      configurable: true
+    }
+  });
+  if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+};
+var objectWithoutProperties = function(obj, keys) {
+  var target = {};
+  for (var i in obj) {
+    if (keys.indexOf(i) >= 0) continue;
+    if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
+    target[i] = obj[i];
+  }
+  return target;
+};
+var possibleConstructorReturn = function(self, call) {
+  if (!self) {
+    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+  }
+  return call && (typeof call === "object" || typeof call === "function") ? call : self;
+};
+var encodeSpecialCharacters = function encodeSpecialCharacters2(str) {
+  var encode = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : true;
+  if (encode === false) {
+    return String(str);
+  }
+  return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#x27;");
+};
+var getTitleFromPropsList = function getTitleFromPropsList2(propsList) {
+  var innermostTitle = getInnermostProperty(propsList, TAG_NAMES.TITLE);
+  var innermostTemplate = getInnermostProperty(propsList, HELMET_PROPS.TITLE_TEMPLATE);
+  if (innermostTemplate && innermostTitle) {
+    return innermostTemplate.replace(/%s/g, function() {
+      return Array.isArray(innermostTitle) ? innermostTitle.join("") : innermostTitle;
+    });
+  }
+  var innermostDefaultTitle = getInnermostProperty(propsList, HELMET_PROPS.DEFAULT_TITLE);
+  return innermostTitle || innermostDefaultTitle || void 0;
+};
+var getOnChangeClientState = function getOnChangeClientState2(propsList) {
+  return getInnermostProperty(propsList, HELMET_PROPS.ON_CHANGE_CLIENT_STATE) || function() {
+  };
+};
+var getAttributesFromPropsList = function getAttributesFromPropsList2(tagType, propsList) {
+  return propsList.filter(function(props) {
+    return typeof props[tagType] !== "undefined";
+  }).map(function(props) {
+    return props[tagType];
+  }).reduce(function(tagAttrs, current) {
+    return _extends({}, tagAttrs, current);
+  }, {});
+};
+var getBaseTagFromPropsList = function getBaseTagFromPropsList2(primaryAttributes, propsList) {
+  return propsList.filter(function(props) {
+    return typeof props[TAG_NAMES.BASE] !== "undefined";
+  }).map(function(props) {
+    return props[TAG_NAMES.BASE];
+  }).reverse().reduce(function(innermostBaseTag, tag) {
+    if (!innermostBaseTag.length) {
+      var keys = Object.keys(tag);
+      for (var i = 0; i < keys.length; i++) {
+        var attributeKey = keys[i];
+        var lowerCaseAttributeKey = attributeKey.toLowerCase();
+        if (primaryAttributes.indexOf(lowerCaseAttributeKey) !== -1 && tag[lowerCaseAttributeKey]) {
+          return innermostBaseTag.concat(tag);
+        }
+      }
+    }
+    return innermostBaseTag;
+  }, []);
+};
+var getTagsFromPropsList = function getTagsFromPropsList2(tagName, primaryAttributes, propsList) {
+  var approvedSeenTags = {};
+  return propsList.filter(function(props) {
+    if (Array.isArray(props[tagName])) {
+      return true;
+    }
+    if (typeof props[tagName] !== "undefined") {
+      warn("Helmet: " + tagName + ' should be of type "Array". Instead found type "' + _typeof(props[tagName]) + '"');
+    }
+    return false;
+  }).map(function(props) {
+    return props[tagName];
+  }).reverse().reduce(function(approvedTags, instanceTags) {
+    var instanceSeenTags = {};
+    instanceTags.filter(function(tag) {
+      var primaryAttributeKey = void 0;
+      var keys2 = Object.keys(tag);
+      for (var i2 = 0; i2 < keys2.length; i2++) {
+        var attributeKey2 = keys2[i2];
+        var lowerCaseAttributeKey = attributeKey2.toLowerCase();
+        if (primaryAttributes.indexOf(lowerCaseAttributeKey) !== -1 && !(primaryAttributeKey === TAG_PROPERTIES.REL && tag[primaryAttributeKey].toLowerCase() === "canonical") && !(lowerCaseAttributeKey === TAG_PROPERTIES.REL && tag[lowerCaseAttributeKey].toLowerCase() === "stylesheet")) {
+          primaryAttributeKey = lowerCaseAttributeKey;
+        }
+        if (primaryAttributes.indexOf(attributeKey2) !== -1 && (attributeKey2 === TAG_PROPERTIES.INNER_HTML || attributeKey2 === TAG_PROPERTIES.CSS_TEXT || attributeKey2 === TAG_PROPERTIES.ITEM_PROP)) {
+          primaryAttributeKey = attributeKey2;
+        }
+      }
+      if (!primaryAttributeKey || !tag[primaryAttributeKey]) {
+        return false;
+      }
+      var value = tag[primaryAttributeKey].toLowerCase();
+      if (!approvedSeenTags[primaryAttributeKey]) {
+        approvedSeenTags[primaryAttributeKey] = {};
+      }
+      if (!instanceSeenTags[primaryAttributeKey]) {
+        instanceSeenTags[primaryAttributeKey] = {};
+      }
+      if (!approvedSeenTags[primaryAttributeKey][value]) {
+        instanceSeenTags[primaryAttributeKey][value] = true;
+        return true;
+      }
+      return false;
+    }).reverse().forEach(function(tag) {
+      return approvedTags.push(tag);
+    });
+    var keys = Object.keys(instanceSeenTags);
+    for (var i = 0; i < keys.length; i++) {
+      var attributeKey = keys[i];
+      var tagUnion = objectAssign({}, approvedSeenTags[attributeKey], instanceSeenTags[attributeKey]);
+      approvedSeenTags[attributeKey] = tagUnion;
+    }
+    return approvedTags;
+  }, []).reverse();
+};
+var getInnermostProperty = function getInnermostProperty2(propsList, property) {
+  for (var i = propsList.length - 1; i >= 0; i--) {
+    var props = propsList[i];
+    if (props.hasOwnProperty(property)) {
+      return props[property];
+    }
+  }
+  return null;
+};
+var reducePropsToState = function reducePropsToState2(propsList) {
+  return {
+    baseTag: getBaseTagFromPropsList([TAG_PROPERTIES.HREF, TAG_PROPERTIES.TARGET], propsList),
+    bodyAttributes: getAttributesFromPropsList(ATTRIBUTE_NAMES.BODY, propsList),
+    defer: getInnermostProperty(propsList, HELMET_PROPS.DEFER),
+    encode: getInnermostProperty(propsList, HELMET_PROPS.ENCODE_SPECIAL_CHARACTERS),
+    htmlAttributes: getAttributesFromPropsList(ATTRIBUTE_NAMES.HTML, propsList),
+    linkTags: getTagsFromPropsList(TAG_NAMES.LINK, [TAG_PROPERTIES.REL, TAG_PROPERTIES.HREF], propsList),
+    metaTags: getTagsFromPropsList(TAG_NAMES.META, [TAG_PROPERTIES.NAME, TAG_PROPERTIES.CHARSET, TAG_PROPERTIES.HTTPEQUIV, TAG_PROPERTIES.PROPERTY, TAG_PROPERTIES.ITEM_PROP], propsList),
+    noscriptTags: getTagsFromPropsList(TAG_NAMES.NOSCRIPT, [TAG_PROPERTIES.INNER_HTML], propsList),
+    onChangeClientState: getOnChangeClientState(propsList),
+    scriptTags: getTagsFromPropsList(TAG_NAMES.SCRIPT, [TAG_PROPERTIES.SRC, TAG_PROPERTIES.INNER_HTML], propsList),
+    styleTags: getTagsFromPropsList(TAG_NAMES.STYLE, [TAG_PROPERTIES.CSS_TEXT], propsList),
+    title: getTitleFromPropsList(propsList),
+    titleAttributes: getAttributesFromPropsList(ATTRIBUTE_NAMES.TITLE, propsList)
+  };
+};
+var rafPolyfill = (function() {
+  var clock = Date.now();
+  return function(callback) {
+    var currentTime = Date.now();
+    if (currentTime - clock > 16) {
+      clock = currentTime;
+      callback(currentTime);
+    } else {
+      setTimeout(function() {
+        rafPolyfill(callback);
+      }, 0);
+    }
+  };
+})();
+var cafPolyfill = function cafPolyfill2(id) {
+  return clearTimeout(id);
+};
+var requestAnimationFrame$1 = typeof window !== "undefined" ? window.requestAnimationFrame && window.requestAnimationFrame.bind(window) || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || rafPolyfill : global.requestAnimationFrame || rafPolyfill;
+var cancelAnimationFrame$1 = typeof window !== "undefined" ? window.cancelAnimationFrame || window.webkitCancelAnimationFrame || window.mozCancelAnimationFrame || cafPolyfill : global.cancelAnimationFrame || cafPolyfill;
+var warn = function warn2(msg) {
+  return console && typeof console.warn === "function" && console.warn(msg);
+};
+var _helmetCallback = null;
+var handleClientStateChange = function handleClientStateChange2(newState) {
+  if (_helmetCallback) {
+    cancelAnimationFrame$1(_helmetCallback);
+  }
+  if (newState.defer) {
+    _helmetCallback = requestAnimationFrame$1(function() {
+      commitTagChanges(newState, function() {
+        _helmetCallback = null;
+      });
+    });
+  } else {
+    commitTagChanges(newState);
+    _helmetCallback = null;
+  }
+};
+var commitTagChanges = function commitTagChanges2(newState, cb) {
+  var baseTag = newState.baseTag, bodyAttributes = newState.bodyAttributes, htmlAttributes = newState.htmlAttributes, linkTags = newState.linkTags, metaTags = newState.metaTags, noscriptTags = newState.noscriptTags, onChangeClientState = newState.onChangeClientState, scriptTags = newState.scriptTags, styleTags = newState.styleTags, title2 = newState.title, titleAttributes = newState.titleAttributes;
+  updateAttributes(TAG_NAMES.BODY, bodyAttributes);
+  updateAttributes(TAG_NAMES.HTML, htmlAttributes);
+  updateTitle(title2, titleAttributes);
+  var tagUpdates = {
+    baseTag: updateTags(TAG_NAMES.BASE, baseTag),
+    linkTags: updateTags(TAG_NAMES.LINK, linkTags),
+    metaTags: updateTags(TAG_NAMES.META, metaTags),
+    noscriptTags: updateTags(TAG_NAMES.NOSCRIPT, noscriptTags),
+    scriptTags: updateTags(TAG_NAMES.SCRIPT, scriptTags),
+    styleTags: updateTags(TAG_NAMES.STYLE, styleTags)
+  };
+  var addedTags = {};
+  var removedTags = {};
+  Object.keys(tagUpdates).forEach(function(tagType) {
+    var _tagUpdates$tagType = tagUpdates[tagType], newTags = _tagUpdates$tagType.newTags, oldTags = _tagUpdates$tagType.oldTags;
+    if (newTags.length) {
+      addedTags[tagType] = newTags;
+    }
+    if (oldTags.length) {
+      removedTags[tagType] = tagUpdates[tagType].oldTags;
+    }
+  });
+  cb && cb();
+  onChangeClientState(newState, addedTags, removedTags);
+};
+var flattenArray = function flattenArray2(possibleArray) {
+  return Array.isArray(possibleArray) ? possibleArray.join("") : possibleArray;
+};
+var updateTitle = function updateTitle2(title2, attributes) {
+  if (typeof title2 !== "undefined" && document.title !== title2) {
+    document.title = flattenArray(title2);
+  }
+  updateAttributes(TAG_NAMES.TITLE, attributes);
+};
+var updateAttributes = function updateAttributes2(tagName, attributes) {
+  var elementTag = document.getElementsByTagName(tagName)[0];
+  if (!elementTag) {
+    return;
+  }
+  var helmetAttributeString = elementTag.getAttribute(HELMET_ATTRIBUTE);
+  var helmetAttributes = helmetAttributeString ? helmetAttributeString.split(",") : [];
+  var attributesToRemove = [].concat(helmetAttributes);
+  var attributeKeys = Object.keys(attributes);
+  for (var i = 0; i < attributeKeys.length; i++) {
+    var attribute = attributeKeys[i];
+    var value = attributes[attribute] || "";
+    if (elementTag.getAttribute(attribute) !== value) {
+      elementTag.setAttribute(attribute, value);
+    }
+    if (helmetAttributes.indexOf(attribute) === -1) {
+      helmetAttributes.push(attribute);
+    }
+    var indexToSave = attributesToRemove.indexOf(attribute);
+    if (indexToSave !== -1) {
+      attributesToRemove.splice(indexToSave, 1);
+    }
+  }
+  for (var _i = attributesToRemove.length - 1; _i >= 0; _i--) {
+    elementTag.removeAttribute(attributesToRemove[_i]);
+  }
+  if (helmetAttributes.length === attributesToRemove.length) {
+    elementTag.removeAttribute(HELMET_ATTRIBUTE);
+  } else if (elementTag.getAttribute(HELMET_ATTRIBUTE) !== attributeKeys.join(",")) {
+    elementTag.setAttribute(HELMET_ATTRIBUTE, attributeKeys.join(","));
+  }
+};
+var updateTags = function updateTags2(type, tags) {
+  var headElement = document.head || document.querySelector(TAG_NAMES.HEAD);
+  var tagNodes = headElement.querySelectorAll(type + "[" + HELMET_ATTRIBUTE + "]");
+  var oldTags = Array.prototype.slice.call(tagNodes);
+  var newTags = [];
+  var indexToDelete = void 0;
+  if (tags && tags.length) {
+    tags.forEach(function(tag) {
+      var newElement = document.createElement(type);
+      for (var attribute in tag) {
+        if (tag.hasOwnProperty(attribute)) {
+          if (attribute === TAG_PROPERTIES.INNER_HTML) {
+            newElement.innerHTML = tag.innerHTML;
+          } else if (attribute === TAG_PROPERTIES.CSS_TEXT) {
+            if (newElement.styleSheet) {
+              newElement.styleSheet.cssText = tag.cssText;
+            } else {
+              newElement.appendChild(document.createTextNode(tag.cssText));
+            }
+          } else {
+            var value = typeof tag[attribute] === "undefined" ? "" : tag[attribute];
+            newElement.setAttribute(attribute, value);
+          }
+        }
+      }
+      newElement.setAttribute(HELMET_ATTRIBUTE, "true");
+      if (oldTags.some(function(existingTag, index) {
+        indexToDelete = index;
+        return newElement.isEqualNode(existingTag);
+      })) {
+        oldTags.splice(indexToDelete, 1);
+      } else {
+        newTags.push(newElement);
+      }
+    });
+  }
+  oldTags.forEach(function(tag) {
+    return tag.parentNode.removeChild(tag);
+  });
+  newTags.forEach(function(tag) {
+    return headElement.appendChild(tag);
+  });
+  return {
+    oldTags,
+    newTags
+  };
+};
+var generateElementAttributesAsString = function generateElementAttributesAsString2(attributes) {
+  return Object.keys(attributes).reduce(function(str, key) {
+    var attr = typeof attributes[key] !== "undefined" ? key + '="' + attributes[key] + '"' : "" + key;
+    return str ? str + " " + attr : attr;
+  }, "");
+};
+var generateTitleAsString = function generateTitleAsString2(type, title2, attributes, encode) {
+  var attributeString = generateElementAttributesAsString(attributes);
+  var flattenedTitle = flattenArray(title2);
+  return attributeString ? "<" + type + " " + HELMET_ATTRIBUTE + '="true" ' + attributeString + ">" + encodeSpecialCharacters(flattenedTitle, encode) + "</" + type + ">" : "<" + type + " " + HELMET_ATTRIBUTE + '="true">' + encodeSpecialCharacters(flattenedTitle, encode) + "</" + type + ">";
+};
+var generateTagsAsString = function generateTagsAsString2(type, tags, encode) {
+  return tags.reduce(function(str, tag) {
+    var attributeHtml = Object.keys(tag).filter(function(attribute) {
+      return !(attribute === TAG_PROPERTIES.INNER_HTML || attribute === TAG_PROPERTIES.CSS_TEXT);
+    }).reduce(function(string, attribute) {
+      var attr = typeof tag[attribute] === "undefined" ? attribute : attribute + '="' + encodeSpecialCharacters(tag[attribute], encode) + '"';
+      return string ? string + " " + attr : attr;
+    }, "");
+    var tagContent = tag.innerHTML || tag.cssText || "";
+    var isSelfClosing = SELF_CLOSING_TAGS.indexOf(type) === -1;
+    return str + "<" + type + " " + HELMET_ATTRIBUTE + '="true" ' + attributeHtml + (isSelfClosing ? "/>" : ">" + tagContent + "</" + type + ">");
+  }, "");
+};
+var convertElementAttributestoReactProps = function convertElementAttributestoReactProps2(attributes) {
+  var initProps = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+  return Object.keys(attributes).reduce(function(obj, key) {
+    obj[REACT_TAG_MAP[key] || key] = attributes[key];
+    return obj;
+  }, initProps);
+};
+var convertReactPropstoHtmlAttributes = function convertReactPropstoHtmlAttributes2(props) {
+  var initAttributes = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+  return Object.keys(props).reduce(function(obj, key) {
+    obj[HTML_TAG_MAP[key] || key] = props[key];
+    return obj;
+  }, initAttributes);
+};
+var generateTitleAsReactComponent = function generateTitleAsReactComponent2(type, title2, attributes) {
+  var _initProps;
+  var initProps = (_initProps = {
+    key: title2
+  }, _initProps[HELMET_ATTRIBUTE] = true, _initProps);
+  var props = convertElementAttributestoReactProps(attributes, initProps);
+  return [React.createElement(TAG_NAMES.TITLE, props, title2)];
+};
+var generateTagsAsReactComponent = function generateTagsAsReactComponent2(type, tags) {
+  return tags.map(function(tag, i) {
+    var _mappedTag;
+    var mappedTag = (_mappedTag = {
+      key: i
+    }, _mappedTag[HELMET_ATTRIBUTE] = true, _mappedTag);
+    Object.keys(tag).forEach(function(attribute) {
+      var mappedAttribute = REACT_TAG_MAP[attribute] || attribute;
+      if (mappedAttribute === TAG_PROPERTIES.INNER_HTML || mappedAttribute === TAG_PROPERTIES.CSS_TEXT) {
+        var content = tag.innerHTML || tag.cssText;
+        mappedTag.dangerouslySetInnerHTML = { __html: content };
+      } else {
+        mappedTag[mappedAttribute] = tag[attribute];
+      }
+    });
+    return React.createElement(type, mappedTag);
+  });
+};
+var getMethodsForTag = function getMethodsForTag2(type, tags, encode) {
+  switch (type) {
+    case TAG_NAMES.TITLE:
+      return {
+        toComponent: function toComponent() {
+          return generateTitleAsReactComponent(type, tags.title, tags.titleAttributes);
+        },
+        toString: function toString() {
+          return generateTitleAsString(type, tags.title, tags.titleAttributes, encode);
+        }
+      };
+    case ATTRIBUTE_NAMES.BODY:
+    case ATTRIBUTE_NAMES.HTML:
+      return {
+        toComponent: function toComponent() {
+          return convertElementAttributestoReactProps(tags);
+        },
+        toString: function toString() {
+          return generateElementAttributesAsString(tags);
+        }
+      };
+    default:
+      return {
+        toComponent: function toComponent() {
+          return generateTagsAsReactComponent(type, tags);
+        },
+        toString: function toString() {
+          return generateTagsAsString(type, tags, encode);
+        }
+      };
+  }
+};
+var mapStateOnServer = function mapStateOnServer2(_ref) {
+  var baseTag = _ref.baseTag, bodyAttributes = _ref.bodyAttributes, encode = _ref.encode, htmlAttributes = _ref.htmlAttributes, linkTags = _ref.linkTags, metaTags = _ref.metaTags, noscriptTags = _ref.noscriptTags, scriptTags = _ref.scriptTags, styleTags = _ref.styleTags, _ref$title = _ref.title, title2 = _ref$title === void 0 ? "" : _ref$title, titleAttributes = _ref.titleAttributes;
+  return {
+    base: getMethodsForTag(TAG_NAMES.BASE, baseTag, encode),
+    bodyAttributes: getMethodsForTag(ATTRIBUTE_NAMES.BODY, bodyAttributes, encode),
+    htmlAttributes: getMethodsForTag(ATTRIBUTE_NAMES.HTML, htmlAttributes, encode),
+    link: getMethodsForTag(TAG_NAMES.LINK, linkTags, encode),
+    meta: getMethodsForTag(TAG_NAMES.META, metaTags, encode),
+    noscript: getMethodsForTag(TAG_NAMES.NOSCRIPT, noscriptTags, encode),
+    script: getMethodsForTag(TAG_NAMES.SCRIPT, scriptTags, encode),
+    style: getMethodsForTag(TAG_NAMES.STYLE, styleTags, encode),
+    title: getMethodsForTag(TAG_NAMES.TITLE, { title: title2, titleAttributes }, encode)
+  };
+};
+var Helmet = function Helmet2(Component) {
+  var _class, _temp;
+  return _temp = _class = (function(_React$Component) {
+    inherits(HelmetWrapper, _React$Component);
+    function HelmetWrapper() {
+      classCallCheck(this, HelmetWrapper);
+      return possibleConstructorReturn(this, _React$Component.apply(this, arguments));
+    }
+    HelmetWrapper.prototype.shouldComponentUpdate = function shouldComponentUpdate(nextProps) {
+      return !isEqual(this.props, nextProps);
+    };
+    HelmetWrapper.prototype.mapNestedChildrenToProps = function mapNestedChildrenToProps(child, nestedChildren) {
+      if (!nestedChildren) {
+        return null;
+      }
+      switch (child.type) {
+        case TAG_NAMES.SCRIPT:
+        case TAG_NAMES.NOSCRIPT:
+          return {
+            innerHTML: nestedChildren
+          };
+        case TAG_NAMES.STYLE:
+          return {
+            cssText: nestedChildren
+          };
+      }
+      throw new Error("<" + child.type + " /> elements are self-closing and can not contain children. Refer to our API for more information.");
+    };
+    HelmetWrapper.prototype.flattenArrayTypeChildren = function flattenArrayTypeChildren(_ref) {
+      var _babelHelpers$extends;
+      var child = _ref.child, arrayTypeChildren = _ref.arrayTypeChildren, newChildProps = _ref.newChildProps, nestedChildren = _ref.nestedChildren;
+      return _extends({}, arrayTypeChildren, (_babelHelpers$extends = {}, _babelHelpers$extends[child.type] = [].concat(arrayTypeChildren[child.type] || [], [_extends({}, newChildProps, this.mapNestedChildrenToProps(child, nestedChildren))]), _babelHelpers$extends));
+    };
+    HelmetWrapper.prototype.mapObjectTypeChildren = function mapObjectTypeChildren(_ref2) {
+      var _babelHelpers$extends2, _babelHelpers$extends3;
+      var child = _ref2.child, newProps = _ref2.newProps, newChildProps = _ref2.newChildProps, nestedChildren = _ref2.nestedChildren;
+      switch (child.type) {
+        case TAG_NAMES.TITLE:
+          return _extends({}, newProps, (_babelHelpers$extends2 = {}, _babelHelpers$extends2[child.type] = nestedChildren, _babelHelpers$extends2.titleAttributes = _extends({}, newChildProps), _babelHelpers$extends2));
+        case TAG_NAMES.BODY:
+          return _extends({}, newProps, {
+            bodyAttributes: _extends({}, newChildProps)
+          });
+        case TAG_NAMES.HTML:
+          return _extends({}, newProps, {
+            htmlAttributes: _extends({}, newChildProps)
+          });
+      }
+      return _extends({}, newProps, (_babelHelpers$extends3 = {}, _babelHelpers$extends3[child.type] = _extends({}, newChildProps), _babelHelpers$extends3));
+    };
+    HelmetWrapper.prototype.mapArrayTypeChildrenToProps = function mapArrayTypeChildrenToProps(arrayTypeChildren, newProps) {
+      var newFlattenedProps = _extends({}, newProps);
+      Object.keys(arrayTypeChildren).forEach(function(arrayChildName) {
+        var _babelHelpers$extends4;
+        newFlattenedProps = _extends({}, newFlattenedProps, (_babelHelpers$extends4 = {}, _babelHelpers$extends4[arrayChildName] = arrayTypeChildren[arrayChildName], _babelHelpers$extends4));
+      });
+      return newFlattenedProps;
+    };
+    HelmetWrapper.prototype.warnOnInvalidChildren = function warnOnInvalidChildren(child, nestedChildren) {
+      return true;
+    };
+    HelmetWrapper.prototype.mapChildrenToProps = function mapChildrenToProps(children, newProps) {
+      var _this2 = this;
+      var arrayTypeChildren = {};
+      React.Children.forEach(children, function(child) {
+        if (!child || !child.props) {
+          return;
+        }
+        var _child$props = child.props, nestedChildren = _child$props.children, childProps = objectWithoutProperties(_child$props, ["children"]);
+        var newChildProps = convertReactPropstoHtmlAttributes(childProps);
+        _this2.warnOnInvalidChildren(child, nestedChildren);
+        switch (child.type) {
+          case TAG_NAMES.LINK:
+          case TAG_NAMES.META:
+          case TAG_NAMES.NOSCRIPT:
+          case TAG_NAMES.SCRIPT:
+          case TAG_NAMES.STYLE:
+            arrayTypeChildren = _this2.flattenArrayTypeChildren({
+              child,
+              arrayTypeChildren,
+              newChildProps,
+              nestedChildren
+            });
+            break;
+          default:
+            newProps = _this2.mapObjectTypeChildren({
+              child,
+              newProps,
+              newChildProps,
+              nestedChildren
+            });
+            break;
+        }
+      });
+      newProps = this.mapArrayTypeChildrenToProps(arrayTypeChildren, newProps);
+      return newProps;
+    };
+    HelmetWrapper.prototype.render = function render() {
+      var _props = this.props, children = _props.children, props = objectWithoutProperties(_props, ["children"]);
+      var newProps = _extends({}, props);
+      if (children) {
+        newProps = this.mapChildrenToProps(children, newProps);
+      }
+      return React.createElement(Component, newProps);
+    };
+    createClass(HelmetWrapper, null, [{
+      key: "canUseDOM",
+      // Component.peek comes from react-side-effect:
+      // For testing, you may use a static peek() method available on the returned component.
+      // It lets you get the current state without resetting the mounted instance stack.
+      // Don’t use it for anything other than testing.
+      /**
+       * @param {Object} base: {"target": "_blank", "href": "http://mysite.com/"}
+       * @param {Object} bodyAttributes: {"className": "root"}
+       * @param {String} defaultTitle: "Default Title"
+       * @param {Boolean} defer: true
+       * @param {Boolean} encodeSpecialCharacters: true
+       * @param {Object} htmlAttributes: {"lang": "en", "amp": undefined}
+       * @param {Array} link: [{"rel": "canonical", "href": "http://mysite.com/example"}]
+       * @param {Array} meta: [{"name": "description", "content": "Test description"}]
+       * @param {Array} noscript: [{"innerHTML": "<img src='http://mysite.com/js/test.js'"}]
+       * @param {Function} onChangeClientState: "(newState) => console.log(newState)"
+       * @param {Array} script: [{"type": "text/javascript", "src": "http://mysite.com/js/test.js"}]
+       * @param {Array} style: [{"type": "text/css", "cssText": "div { display: block; color: blue; }"}]
+       * @param {String} title: "Title"
+       * @param {Object} titleAttributes: {"itemprop": "name"}
+       * @param {String} titleTemplate: "MySite.com - %s"
+       */
+      set: function set$$1(canUseDOM) {
+        Component.canUseDOM = canUseDOM;
+      }
+    }]);
+    return HelmetWrapper;
+  })(React.Component), _class.propTypes = {
+    base: PropTypes.object,
+    bodyAttributes: PropTypes.object,
+    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    defaultTitle: PropTypes.string,
+    defer: PropTypes.bool,
+    encodeSpecialCharacters: PropTypes.bool,
+    htmlAttributes: PropTypes.object,
+    link: PropTypes.arrayOf(PropTypes.object),
+    meta: PropTypes.arrayOf(PropTypes.object),
+    noscript: PropTypes.arrayOf(PropTypes.object),
+    onChangeClientState: PropTypes.func,
+    script: PropTypes.arrayOf(PropTypes.object),
+    style: PropTypes.arrayOf(PropTypes.object),
+    title: PropTypes.string,
+    titleAttributes: PropTypes.object,
+    titleTemplate: PropTypes.string
+  }, _class.defaultProps = {
+    defer: true,
+    encodeSpecialCharacters: true
+  }, _class.peek = Component.peek, _class.rewind = function() {
+    var mappedState = Component.rewind();
+    if (!mappedState) {
+      mappedState = mapStateOnServer({
+        baseTag: [],
+        bodyAttributes: {},
+        htmlAttributes: {},
+        linkTags: [],
+        metaTags: [],
+        noscriptTags: [],
+        scriptTags: [],
+        styleTags: [],
+        title: "",
+        titleAttributes: {}
+      });
+    }
+    return mappedState;
+  }, _temp;
+};
+var NullComponent = function NullComponent2() {
+  return null;
+};
+var HelmetSideEffects = withSideEffect(reducePropsToState, handleClientStateChange, mapStateOnServer)(NullComponent);
+var HelmetExport = Helmet(HelmetSideEffects);
+HelmetExport.renderStatic = HelmetExport.rewind;
+const WalletGuide = () => {
+  const [activeTab, setActiveTab] = reactExports.useState("basics");
+  const tabs = [
+    { id: "basics", name: "Wallet Basics", icon: /* @__PURE__ */ jsxRuntimeExports.jsx(FaWallet, {}) },
+    { id: "network", name: "Network Setup", icon: /* @__PURE__ */ jsxRuntimeExports.jsx(FaNetworkWired, {}) },
+    { id: "tokens", name: "Token Types", icon: /* @__PURE__ */ jsxRuntimeExports.jsx(FaCoins, {}) },
+    { id: "nfts", name: "NFT Management", icon: /* @__PURE__ */ jsxRuntimeExports.jsx(FaPaintBrush, {}) },
+    { id: "security", name: "Security", icon: /* @__PURE__ */ jsxRuntimeExports.jsx(FaLock, {}) }
+  ];
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs(HelmetExport, { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("title", { children: "Wallet Guide | Paxeer Network" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "meta",
+        {
+          name: "description",
+          content: "Complete guide to setting up and using crypto wallets with Paxeer Network"
+        }
+      )
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Header, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: styles.main, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: styles.title, children: "Wallet Guide" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: styles.description, children: "Everything you need to know about crypto wallets and Paxeer Network" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "flex overflow-x-auto mb-8 border-b border-gray-700", children: tabs.map((tab) => /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "button",
+        {
+          onClick: () => setActiveTab(tab.id),
+          className: `flex items-center px-4 py-2 text-sm font-medium ${activeTab === tab.id ? "text-[#35b7ff] border-b-2 border-[#35b7ff]" : "text-gray-400 hover:text-white"}`,
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "mr-2", children: tab.icon }),
+            tab.name
+          ]
+        },
+        tab.id
+      )) }),
+      activeTab === "basics" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.section, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Understanding Crypto Wallets" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Key Concepts" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Private Keys:" }),
+              " Secret codes that control access to your crypto"
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Public Address:" }),
+              " Your wallet address that others can send to"
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Seed Phrase:" }),
+              " 12-24 words that can restore your wallet"
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Gas Fees:" }),
+              " Transaction costs paid in the network's native token"
+            ] })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid md:grid-cols-2 gap-4", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Hot Wallets (Online)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-2", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Mobile apps (Trust Wallet, Coinbase Wallet)" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Browser extensions (MetaMask, Phantom)" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Best for frequent transactions" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "More vulnerable to online threats" })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Cold Wallets (Offline)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-2", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Hardware devices (Ledger, Trezor)" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Paper wallets" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Best for long-term storage" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Maximum security against online threats" })
+            ] })
+          ] })
+        ] })
+      ] }),
+      activeTab === "network" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.section, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Setting Up Paxeer Network" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Manual Network Setup" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("ol", { className: "list-decimal pl-5 space-y-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Open your wallet and go to network settings" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: 'Select "Add Network" or "Custom RPC"' }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+              "Enter Paxeer Network details:",
+              /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 mt-2 space-y-1", children: [
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+                  "Network Name: ",
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("code", { children: "Paxeer Mainnet" })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+                  "RPC URL: ",
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("code", { children: "https://rpc.paxeer.network" })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+                  "Chain ID: ",
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("code", { children: "7878" })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+                  "Currency Symbol: ",
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("code", { children: "PAX" })
+                ] }),
+                /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+                  "Block Explorer: ",
+                  /* @__PURE__ */ jsxRuntimeExports.jsx("code", { children: "https://explorer.paxeer.network" })
+                ] })
+              ] })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Save and switch to Paxeer Network" })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Supported Wallets" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "MetaMask" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "WalletConnect-compatible wallets" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Coinbase Wallet" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Trust Wallet" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Ledger (via MetaMask)" })
+          ] })
+        ] })
+      ] }),
+      activeTab === "tokens" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.section, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Token Standards on Paxeer" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "PAX-20 (Fungible Tokens)" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Similar to ERC-20 on Ethereum" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Used for cryptocurrencies and utility tokens" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "All tokens are identical and interchangeable" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Examples: Stablecoins, governance tokens" })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "PAX-721 (NFTs)" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Non-fungible token standard" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Each token is unique with distinct properties" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Used for digital art, collectibles, virtual items" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Examples: Paxeer Punks, Metaverse land" })
+          ] })
+        ] })
+      ] }),
+      activeTab === "nfts" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.section, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Managing NFTs on Paxeer" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Viewing NFTs" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Use NFT-friendly wallets like Rainbow or Coinbase Wallet" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Connect to marketplaces like Paxeer Market or OpenSea" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Some wallets require adding NFT contracts manually" })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "NFT Security" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Beware of fake NFT airdrops" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Verify marketplace URLs before connecting wallet" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Check collection verification status" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Consider hardware wallets for valuable NFTs" })
+          ] })
+        ] })
+      ] }),
+      activeTab === "security" && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.section, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Wallet Security Essentials" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Seed Phrase Protection" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-2", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Never share your seed phrase with anyone" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Store it securely offline (never digitally)" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Consider metal backups for durability" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Use multiple secure locations" })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid md:grid-cols-2 gap-4", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Common Threats" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-2", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Phishing websites" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Malicious smart contracts" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Fake wallet apps" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Social engineering attacks" })
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: styles.card, children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Best Practices" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-2", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Use hardware wallets for significant holdings" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Enable all available security features" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Keep software updated" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "Verify transactions carefully" })
+            ] })
+          ] })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "w-full max-w-4xl mt-8 bg-[#1e1e2d] p-6 rounded-lg border border-[#2d2d3a]", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-xl font-bold text-white mb-4", children: "Wallet Resources" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { className: "list-disc pl-5 space-y-2 text-gray-300", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://docs.paxeer.network/wallets", className: "text-[#35b7ff] hover:underline", children: "Paxeer Wallet Documentation" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://chainlist.org/chain/7878", className: "text-[#35b7ff] hover:underline", children: "Auto-Add Paxeer Network" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://paxeer.network/explorer", className: "text-[#35b7ff] hover:underline", children: "Paxeer Block Explorer" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://community.paxeer.network/wallets", className: "text-[#35b7ff] hover:underline", children: "Wallet Support Forum" }) })
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
+  ] });
+};
 function useLoading() {
   const [isLoading, setIsLoading] = reactExports.useState(true);
   reactExports.useEffect(() => {
@@ -19663,7 +21710,13 @@ function App() {
         /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/blog", element: /* @__PURE__ */ jsxRuntimeExports.jsx(Blog, {}) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/careers", element: /* @__PURE__ */ jsxRuntimeExports.jsx(Careers, {}) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/ctm", element: /* @__PURE__ */ jsxRuntimeExports.jsx(CTM, {}) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/mission", element: /* @__PURE__ */ jsxRuntimeExports.jsx(Mission, {}) })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/mission", element: /* @__PURE__ */ jsxRuntimeExports.jsx(Mission, {}) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/defi-fundamentals", element: /* @__PURE__ */ jsxRuntimeExports.jsx(DeFiFundamentals, {}) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/developers", element: /* @__PURE__ */ jsxRuntimeExports.jsx(Developers, {}) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/rpc-endpoints", element: /* @__PURE__ */ jsxRuntimeExports.jsx(RPCEndpoints, {}) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/security-guide", element: /* @__PURE__ */ jsxRuntimeExports.jsx(SecurityGuide, {}) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/traders-guide", element: /* @__PURE__ */ jsxRuntimeExports.jsx(TradersGuide, {}) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/wallet-guide", element: /* @__PURE__ */ jsxRuntimeExports.jsx(WalletGuide, {}) })
       ] }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
     ] }) })

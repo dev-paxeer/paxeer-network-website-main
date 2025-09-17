@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
-import { NextPage } from 'next';
-import Head from 'next/head';
 import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
 import { 
   FaServer, 
   FaGlobe, 
@@ -20,7 +17,7 @@ interface RPCEndpoint {
   type: 'provider' | 'public' | 'websocket' | 'setup';
 }
 
-const RPCEndpoints: NextPage = () => {
+const RPCEndpoints = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedType, setSelectedType] = useState('all');
 
@@ -46,13 +43,13 @@ const RPCEndpoints: NextPage = () => {
 
   return (
     <div className={styles.container}>
-      <Head>
+      <>
         <title>RPC Endpoints | Paxeer Network</title>
         <meta 
           name="description" 
           content="Comprehensive directory of RPC endpoints for Paxeer Network and connected chains" 
         />
-      </Head>
+      </>
 
       <Header />
 
@@ -144,8 +141,6 @@ const RPCEndpoints: NextPage = () => {
           </ul>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 };

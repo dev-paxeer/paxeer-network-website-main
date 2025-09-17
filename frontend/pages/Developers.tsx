@@ -1,8 +1,5 @@
-import React from 'react';
-import { NextPage } from 'next';
-import Head from 'next/head';
+import React, { useEffect } from 'react';
 import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
 import { 
   FaBook, 
   FaCode, 
@@ -13,17 +10,21 @@ import {
 } from 'react-icons/fa';
 import styles from '../styles/Home.module.css';
 
-const Developers: NextPage = () => {
+const Developers = () => {
+  useEffect(() => {
+    document.title = "Developer Resources | Paxeer Network";
+    const meta = document.createElement('meta');
+    meta.name = "description";
+    meta.content = "Essential resources for developers building on Paxeer Network including security guides, code patterns, and RPC endpoints.";
+    document.head.appendChild(meta);
+    
+    return () => {
+      document.head.removeChild(meta);
+    };
+  }, []);
+
   return (
     <div className={styles.container}>
-      <Head>
-        <title>Developer Resources | Paxeer Network</title>
-        <meta 
-          name="description" 
-          content="Essential resources for developers building on Paxeer Network including security guides, code patterns, and RPC endpoints." 
-        />
-      </Head>
-
       <Header />
 
       <main className={styles.main}>
@@ -125,8 +126,6 @@ const Developers: NextPage = () => {
           </p>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 };

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { NextPage } from 'next';
 import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
 import { 
   FaBitcoin, 
   FaEthereum,
@@ -135,7 +134,6 @@ export const DeFiFundamentals: NextPage = () => {
           </div>
         )}
       </main>
-      <Footer />
     </div>
   );
 };

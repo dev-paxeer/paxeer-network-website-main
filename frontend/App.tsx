@@ -14,10 +14,13 @@ import { CTM } from './pages/CTM';
 import { Mission } from './pages/Mission';
 import { Technology } from './pages/Technology';
 import { LoadingScreen } from './components/LoadingScreen';
-import { useLoading } from './hooks/useLoading';
-import { DeFiFundamentals } from './pages/DeFiFundamentals';
-import { DeveloperResources } from './pages/DeveloperResources';
+import DeFiFundamentals from './pages/DeFiFundamentals';
+import Developers from './pages/Developers';
+import RPCEndpoints from './pages/RPCEndpoints';
 import SecurityGuide from './pages/SecurityGuide';
+import TradersGuide from './pages/TradersGuide';
+import WalletGuide from './pages/WalletGuide';
+import { useLoading } from './hooks/useLoading';
 
 function App() {
   const { isLoading } = useLoading();
@@ -41,6 +44,12 @@ function App() {
               <Route path="/careers" element={<Careers />} />
               <Route path="/ctm" element={<CTM />} />
               <Route path="/mission" element={<Mission />} />
+              <Route path="/defi-fundamentals" element={<DeFiFundamentals />} />
+              <Route path="/developers" element={<Developers />} />
+              <Route path="/rpc-endpoints" element={<RPCEndpoints />} />
+              <Route path="/security-guide" element={<SecurityGuide />} />
+              <Route path="/traders-guide" element={<TradersGuide />} />
+              <Route path="/wallet-guide" element={<WalletGuide />} />
             </Routes>
           </main>
           <Footer />

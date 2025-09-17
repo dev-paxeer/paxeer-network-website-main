@@ -1,12 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { FiSearch } from 'react-icons/fi';
+import { FaSearch } from 'react-icons/fa';
+
+const searchablePages = [
+  { path: '/docs', name: 'Developers' },
+  { path: '/technology', name: 'Technology' },
+  { path: '/token', name: 'Token' },
+  { path: '/community', name: 'Community' },
+  { path: '/about', name: 'About' },
+];
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,6 +36,19 @@ export function Header() {
     { href: '/community', label: 'Community' },
     { href: '/about', label: 'About' },
   ];
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!searchQuery.trim()) return;
+    
+    const matchedPage = searchablePages.find(page => 
+      page.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    
+    if (matchedPage) {
+      navigate(matchedPage.path);
+    }
+  };
 
   return (
     <header
@@ -57,12 +82,19 @@ export function Header() {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
-            <Button className="bg-[#35b7ff] hover:bg-[#35b7ff]/90 text-black font-medium glow-blue hover:scale-105 transition-transform duration-200">
-              Launch App
-            </Button>
-          </div>
+          {/* Search Bar */}
+          <form onSubmit={handleSearch} className="hidden md:block relative">
+            <input
+              type="text"
+              placeholder="Search pages..."
+              className="bg-[#1E1E2D] text-white pl-10 pr-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#35b7ff] w-64"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <button type="submit" className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+              <FaSearch />
+            </button>
+          </form>
 
           {/* Mobile Menu Button */}
           <button
@@ -87,9 +119,18 @@ export function Header() {
                   {link.label}
                 </Link>
               ))}
-              <Button className="w-full bg-[#35b7ff] hover:bg-[#35b7ff]/90 text-black font-medium mt-4 glow-blue hover:scale-105 transition-transform duration-200">
-                Launch App
-              </Button>
+              <form onSubmit={handleSearch} className="relative">
+                <input
+                  type="text"
+                  placeholder="Search pages..."
+                  className="bg-[#1E1E2D] text-white pl-10 pr-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#35b7ff] w-full"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+                <button type="submit" className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+                  <FaSearch />
+                </button>
+              </form>
             </div>
           </div>
         )}

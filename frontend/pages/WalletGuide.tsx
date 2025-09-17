@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { NextPage } from 'next';
-import Head from 'next/head';
+import { Helmet } from 'react-helmet';
 import { Header } from '../components/Header';
-import { Footer } from '../components/Footer';
 import { 
   FaWallet,
   FaNetworkWired,
@@ -12,7 +10,7 @@ import {
 } from 'react-icons/fa';
 import styles from '../styles/Home.module.css';
 
-const WalletGuide: NextPage = () => {
+const WalletGuide = () => {
   const [activeTab, setActiveTab] = useState('basics');
 
   const tabs = [
@@ -25,13 +23,13 @@ const WalletGuide: NextPage = () => {
 
   return (
     <div className={styles.container}>
-      <Head>
+      <Helmet>
         <title>Wallet Guide | Paxeer Network</title>
         <meta 
           name="description" 
           content="Complete guide to setting up and using crypto wallets with Paxeer Network" 
         />
-      </Head>
+      </Helmet>
 
       <Header />
 
@@ -236,8 +234,6 @@ const WalletGuide: NextPage = () => {
           </ul>
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 };
