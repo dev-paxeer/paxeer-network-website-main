@@ -54,9 +54,9 @@ export function Homepage() {
 
   return (
     <div className="pt-16">
-      {/* Hero Section with Vanta Background */}
-      <VantaBackground effect="net" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/hero-bg.jpg')] bg-cover bg-center filter blur-md opacity-30"></div>
+      {/* Hero Section */}
+      <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-[#0A0B0E] opacity-90"></div>
         <div className="relative z-10 px-6 py-24 text-center">
           <FloatingElements />
           <AnimatedSection>
@@ -97,7 +97,7 @@ export function Homepage() {
           </AnimatedSection>
           <WaveAnimation className="absolute bottom-0 left-0 right-0 h-32" />
         </div>
-      </VantaBackground>
+      </div>
 
       {/* Showcase Section with Sticky Cube */}
       <section className="py-20 relative bg-gradient-to-b from-[#0A0B0E] to-[#1a1b23]/50">

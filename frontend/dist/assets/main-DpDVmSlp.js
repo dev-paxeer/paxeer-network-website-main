@@ -18680,8 +18680,8 @@ function Homepage() {
   ];
   const navigate = useNavigate();
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "pt-16", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs(VantaBackground, { effect: "net", className: "relative min-h-screen flex items-center justify-center overflow-hidden", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-[url('/hero-bg.jpg')] bg-cover bg-center filter blur-md opacity-30" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative min-h-screen flex items-center justify-center overflow-hidden", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-[#0A0B0E] opacity-90" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10 px-6 py-24 text-center", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(FloatingElements, {}),
         /* @__PURE__ */ jsxRuntimeExports.jsxs(AnimatedSection, { children: [

@@ -2318,6 +2318,10 @@
     opacity: .8;
   }
 
+  .opacity-90 {
+    opacity: .9;
+  }
+
   .opacity-100 {
     opacity: 1;
   }
@@ -2359,11 +2363,6 @@
 
   .blur-md {
     --tw-blur: blur(var(--blur-md));
-    filter: var(--tw-blur, ) var(--tw-brightness, ) var(--tw-contrast, ) var(--tw-grayscale, ) var(--tw-hue-rotate, ) var(--tw-invert, ) var(--tw-saturate, ) var(--tw-sepia, ) var(--tw-drop-shadow, );
-  }
-
-  .blur-sm {
-    --tw-blur: blur(var(--blur-sm));
     filter: var(--tw-blur, ) var(--tw-brightness, ) var(--tw-contrast, ) var(--tw-grayscale, ) var(--tw-hue-rotate, ) var(--tw-invert, ) var(--tw-saturate, ) var(--tw-sepia, ) var(--tw-drop-shadow, );
   }
 
@@ -2876,11 +2875,6 @@
       flex-direction: row;
     }
 
-    .md\:text-2xl {
-      font-size: var(--text-2xl);
-      line-height: var(--tw-leading, var(--text-2xl--line-height));
-    }
-
     .md\:text-5xl {
       font-size: var(--text-5xl);
       line-height: var(--tw-leading, var(--text-5xl--line-height));
@@ -2889,11 +2883,6 @@
     .md\:text-6xl {
       font-size: var(--text-6xl);
       line-height: var(--tw-leading, var(--text-6xl--line-height));
-    }
-
-    .md\:text-7xl {
-      font-size: var(--text-7xl);
-      line-height: var(--tw-leading, var(--text-7xl--line-height));
     }
   }
 
