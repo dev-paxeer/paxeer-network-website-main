@@ -37,7 +37,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 hover:scale-105 transition-transform duration-200">
-            <img src="../Untitled design (99).png" alt="Logo" className="w-35 h-15" />
+            <img src="https://raw.githubusercontent.com/dev-paxeer/paxeer-network-website-main/refs/heads/main/frontend/Untitled%20design%20(99).png" alt="Logo" className="w-35 h-15" />
           </Link>
 
           {/* Desktop Navigation */}
