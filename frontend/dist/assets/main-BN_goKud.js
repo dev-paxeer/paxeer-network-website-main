@@ -14970,31 +14970,66 @@ function Header() {
   );
 }
 const Footer = () => {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("footer", { className: "bg-[#0A0B0E] text-white py-8", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-lg font-semibold mb-4 text-[#35b7ff]", children: "Connect" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-2 gap-4", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "https://github.com/organizations/Paxeer-Network", target: "_blank", rel: "noopener noreferrer", className: "text-gray-400 hover:text-white flex items-center", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(FaGithub, { className: "mr-2" }),
-        " GitHub"
+  const pages = [
+    { path: "/", name: "Home" },
+    { path: "/defi-fundamentals", name: "DeFi Fundamentals" },
+    { path: "/developers", name: "Developers" },
+    { path: "/rpc-endpoints", name: "RPC Endpoints" },
+    { path: "/security-guide", name: "Security Guide" },
+    { path: "/traders-guide", name: "Traders Guide" },
+    { path: "/wallet-guide", name: "Wallet Guide" },
+    { path: "/about", name: "About" },
+    { path: "/token", name: "Token" },
+    { path: "/technology", name: "Technology" },
+    { path: "/community", name: "Community" },
+    { path: "/blog", name: "Blog" }
+  ];
+  return /* @__PURE__ */ jsxRuntimeExports.jsx("footer", { className: "bg-[#0A0B0E] border-t border-[#1E1E2D] py-8 px-6", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-7xl mx-auto", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-2 md:grid-cols-4 gap-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-lg font-semibold mb-4 text-[#35b7ff]", children: "Resources" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "space-y-2", children: pages.slice(1, 6).map((page) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: page.path, className: "text-gray-400 hover:text-white transition-colors", children: page.name }) }, page.path)) })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "https://www.npmjs.com/package/@paxeer-foundation", target: "_blank", rel: "noopener noreferrer", className: "text-gray-400 hover:text-white flex items-center", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(FaNpm, { className: "mr-2" }),
-        " NPM"
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-lg font-semibold mb-4 text-[#35b7ff]", children: "Guides" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "space-y-2", children: pages.slice(6, 10).map((page) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: page.path, className: "text-gray-400 hover:text-white transition-colors", children: page.name }) }, page.path)) })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "https://x.com/@paxeer_app", target: "_blank", rel: "noopener noreferrer", className: "text-gray-400 hover:text-white flex items-center", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(FaTwitter, { className: "mr-2" }),
-        " Twitter"
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-lg font-semibold mb-4 text-[#35b7ff]", children: "Company" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { className: "space-y-2", children: pages.slice(10).map((page) => /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: page.path, className: "text-gray-400 hover:text-white transition-colors", children: page.name }) }, page.path)) })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "https://t.me/paxeer", target: "_blank", rel: "noopener noreferrer", className: "text-gray-400 hover:text-white flex items-center", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(FaTelegram, { className: "mr-2" }),
-        " Telegram"
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "mailto:infopaxeer@paxeer.app", className: "text-gray-400 hover:text-white flex items-center", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(FaEnvelope, { className: "mr-2" }),
-        " Email"
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "text-lg font-semibold mb-4 text-[#35b7ff]", children: "Connect" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid grid-cols-2 gap-4", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "https://github.com/organizations/Paxeer-Network", target: "_blank", rel: "noopener noreferrer", className: "text-gray-400 hover:text-white flex items-center", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(FaGithub, { className: "mr-2" }),
+            " GitHub"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "https://www.npmjs.com/package/@paxeer-foundation", target: "_blank", rel: "noopener noreferrer", className: "text-gray-400 hover:text-white flex items-center", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(FaNpm, { className: "mr-2" }),
+            " NPM"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "https://x.com/@paxeer_app", target: "_blank", rel: "noopener noreferrer", className: "text-gray-400 hover:text-white flex items-center", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(FaTwitter, { className: "mr-2" }),
+            " Twitter"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "https://t.me/paxeer", target: "_blank", rel: "noopener noreferrer", className: "text-gray-400 hover:text-white flex items-center", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(FaTelegram, { className: "mr-2" }),
+            " Telegram"
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("a", { href: "mailto:infopaxeer@paxeer.app", className: "text-gray-400 hover:text-white flex items-center", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(FaEnvelope, { className: "mr-2" }),
+            " Email"
+          ] })
+        ] })
       ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mt-8 pt-8 border-t border-[#1E1E2D] text-center text-gray-500", children: [
+      "© ",
+      (/* @__PURE__ */ new Date()).getFullYear(),
+      " Paxeer Network. All rights reserved."
     ] })
-  ] });
+  ] }) });
 };
 function setRef(ref, value) {
   if (typeof ref === "function") {
