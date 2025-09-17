@@ -1,0 +1,13 @@
+{
+  "name": "leap-app",
+  "version": "1.0.0",
+  "type": "module",
+  "packageManager": "bun",
+  "workspaces": [
+    "frontend"
+  ],
+  "dependencies": {
+    "lucide-react": "^0.544.0",
+    "react": "^19.1.1"
+  }
+}
