@@ -20,6 +20,7 @@ import RPCEndpoints from './pages/RPCEndpoints';
 import SecurityGuide from './pages/SecurityGuide';
 import TradersGuide from './pages/TradersGuide';
 import WalletGuide from './pages/WalletGuide';
+import GetStarted from './pages/GetStarted';
 import { useLoading } from './hooks/useLoading';
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
               <Route path="/security-guide" element={<SecurityGuide />} />
               <Route path="/traders-guide" element={<TradersGuide />} />
               <Route path="/wallet-guide" element={<WalletGuide />} />
+              <Route path="/get-started" element={<GetStarted />} />
             </Routes>
           </main>
           <Footer />

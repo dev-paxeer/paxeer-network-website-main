@@ -18678,45 +18678,49 @@ function Homepage() {
       description: "Inclusive platform designed for developers, traders, and institutions alike."
     }
   ];
+  const navigate = useNavigate();
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "pt-16", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs(VantaBackground, { effect: "net", className: "relative min-h-screen flex items-center justify-center overflow-hidden", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx(FloatingElements, {}),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(AnimatedSection, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", { className: "text-5xl md:text-7xl font-bold mb-6", children: [
-          "Explore a",
-          " ",
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[#35b7ff] bg-gradient-to-r from-[#35b7ff] to-[#00a8ff] bg-clip-text text-transparent", children: "Thriving Digital Economy" })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xl md:text-2xl text-white/80 mb-8 max-w-3xl mx-auto", children: "Paxeer Network is a high-performance Web3 protocol designed to power the next generation of decentralized finance applications." }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col sm:flex-row gap-4 justify-center items-center mb-8", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-3xl font-bold text-[#35b7ff]", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AnimatedNumber, { value: 2500, suffix: "+" }) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-white/60", children: "TPS" })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 bg-[url('/hero-bg.jpg')] bg-cover bg-center filter blur-sm opacity-20" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative z-10", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(FloatingElements, {}),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(AnimatedSection, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("h1", { className: "text-5xl md:text-7xl font-bold mb-6", children: [
+            "Explore a",
+            " ",
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-[#35b7ff] bg-gradient-to-r from-[#35b7ff] to-[#00a8ff] bg-clip-text text-transparent", children: "Thriving Digital Economy" })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "hidden sm:block w-px h-8 bg-white/20" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-3xl font-bold text-[#35b7ff]", children: "ZERO" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-white/60", children: "FEES" })
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-xl md:text-2xl text-white/80 mb-8 max-w-3xl mx-auto", children: "Paxeer Network is a high-performance Web3 protocol designed to power the next generation of decentralized finance applications." }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col sm:flex-row gap-4 justify-center items-center mb-8", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-3xl font-bold text-[#35b7ff]", children: /* @__PURE__ */ jsxRuntimeExports.jsx(AnimatedNumber, { value: 2500, suffix: "+" }) }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-white/60", children: "TPS" })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "hidden sm:block w-px h-8 bg-white/20" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-3xl font-bold text-[#35b7ff]", children: "ZERO" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-white/60", children: "FEES" })
+            ] }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "hidden sm:block w-px h-8 bg-white/20" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-3xl font-bold text-[#35b7ff]", children: "L2" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-white/60", children: "ROLLUP" })
+            ] })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "hidden sm:block w-px h-8 bg-white/20" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "text-center", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-3xl font-bold text-[#35b7ff]", children: "L2" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "text-sm text-white/60", children: "ROLLUP" })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs(
-          Button,
-          {
-            size: "lg",
-            className: "bg-[#35b7ff] hover:bg-[#35b7ff]/90 text-black font-medium text-lg px-8 py-4 hover:scale-105 transition-transform duration-200",
-            children: [
-              "Get Started",
-              /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "ml-2 w-5 h-5" })
-            ]
-          }
-        )
-      ] }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(WaveAnimation, { className: "absolute bottom-0 left-0 right-0 h-32" })
+          /* @__PURE__ */ jsxRuntimeExports.jsxs(
+            "button",
+            {
+              onClick: () => navigate("/get-started"),
+              className: "mt-8 px-8 py-3 bg-[#35b7ff] text-white rounded-lg hover:bg-[#2a9bda] transition-colors",
+              children: [
+                "Get Started",
+                /* @__PURE__ */ jsxRuntimeExports.jsx(ArrowRight, { className: "ml-2 w-5 h-5" })
+              ]
+            }
+          )
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(WaveAnimation, { className: "absolute bottom-0 left-0 right-0 h-32" })
+      ] })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("section", { className: "py-20 relative bg-gradient-to-b from-[#0A0B0E] to-[#1a1b23]/50", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx(ParticleField, { className: "opacity-30", particleCount: 30 }),
@@ -21771,6 +21775,38 @@ const WalletGuide = () => {
     ] })
   ] });
 };
+function GetStarted() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "min-h-screen bg-[#0A0B0E] text-white", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Header, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: "max-w-4xl mx-auto py-12 px-4", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-4xl font-bold mb-6", children: "Get Started with Paxeer" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid md:grid-cols-2 gap-8 mt-8", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-[#1E1E2D] p-6 rounded-lg", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-2xl font-semibold mb-4", children: "For Developers" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Link,
+            {
+              to: "/developers",
+              className: "mt-4 inline-block px-6 py-2 bg-[#35b7ff] text-white rounded hover:bg-[#2a9bda] transition-colors",
+              children: "Developer Resources"
+            }
+          )
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "bg-[#1E1E2D] p-6 rounded-lg", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { className: "text-2xl font-semibold mb-4", children: "For Traders" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            Link,
+            {
+              to: "/traders-guide",
+              className: "mt-4 inline-block px-6 py-2 bg-[#35b7ff] text-white rounded hover:bg-[#2a9bda] transition-colors",
+              children: "Trading Guide"
+            }
+          )
+        ] })
+      ] })
+    ] })
+  ] });
+}
 function useLoading() {
   const [isLoading, setIsLoading] = reactExports.useState(true);
   reactExports.useEffect(() => {
@@ -21804,7 +21840,8 @@ function App() {
         /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/rpc-endpoints", element: /* @__PURE__ */ jsxRuntimeExports.jsx(RPCEndpoints, {}) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/security-guide", element: /* @__PURE__ */ jsxRuntimeExports.jsx(SecurityGuide, {}) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/traders-guide", element: /* @__PURE__ */ jsxRuntimeExports.jsx(TradersGuide, {}) }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/wallet-guide", element: /* @__PURE__ */ jsxRuntimeExports.jsx(WalletGuide, {}) })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/wallet-guide", element: /* @__PURE__ */ jsxRuntimeExports.jsx(WalletGuide, {}) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/get-started", element: /* @__PURE__ */ jsxRuntimeExports.jsx(GetStarted, {}) })
       ] }) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx(Footer, {})
     ] }) })

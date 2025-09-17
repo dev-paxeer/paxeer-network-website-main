@@ -9,6 +9,7 @@ import { ParticleField } from '../components/ParticleField';
 import { FloatingElements } from '../components/FloatingElements';
 import { AnimatedNumber } from '../components/AnimatedNumber';
 import { WaveAnimation } from '../components/WaveAnimation';
+import { useNavigate } from 'react-router-dom';
 
 export function Homepage() {
   const technologies = [
@@ -49,50 +50,55 @@ export function Homepage() {
     }
   ];
 
+  const navigate = useNavigate();
+
   return (
     <div className="pt-16">
       {/* Hero Section with Vanta Background */}
       <VantaBackground effect="net" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <FloatingElements />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <AnimatedSection>
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              Explore a{' '}
-              <span className="text-[#35b7ff] bg-gradient-to-r from-[#35b7ff] to-[#00a8ff] bg-clip-text text-transparent">
-                Thriving Digital Economy
-              </span>
-            </h1>
-            <p className="text-xl md:text-2xl text-white/80 mb-8 max-w-3xl mx-auto">
-              Paxeer Network is a high-performance Web3 protocol designed to power the next generation of decentralized finance applications.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-[#35b7ff]">
-                  <AnimatedNumber value={2500} suffix="+" />
+        <div className="absolute inset-0 bg-[url('/hero-bg.jpg')] bg-cover bg-center filter blur-sm opacity-20"></div>
+        <div className="relative z-10">
+          <FloatingElements />
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <AnimatedSection>
+              <h1 className="text-5xl md:text-7xl font-bold mb-6">
+                Explore a{' '}
+                <span className="text-[#35b7ff] bg-gradient-to-r from-[#35b7ff] to-[#00a8ff] bg-clip-text text-transparent">
+                  Thriving Digital Economy
+                </span>
+              </h1>
+              <p className="text-xl md:text-2xl text-white/80 mb-8 max-w-3xl mx-auto">
+                Paxeer Network is a high-performance Web3 protocol designed to power the next generation of decentralized finance applications.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-[#35b7ff]">
+                    <AnimatedNumber value={2500} suffix="+" />
+                  </div>
+                  <div className="text-sm text-white/60">TPS</div>
                 </div>
-                <div className="text-sm text-white/60">TPS</div>
+                <div className="hidden sm:block w-px h-8 bg-white/20" />
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-[#35b7ff]">ZERO</div>
+                  <div className="text-sm text-white/60">FEES</div>
+                </div>
+                <div className="hidden sm:block w-px h-8 bg-white/20" />
+                <div className="text-center">
+                  <div className="text-3xl font-bold text-[#35b7ff]">L2</div>
+                  <div className="text-sm text-white/60">ROLLUP</div>
+                </div>
               </div>
-              <div className="hidden sm:block w-px h-8 bg-white/20" />
-              <div className="text-center">
-                <div className="text-3xl font-bold text-[#35b7ff]">ZERO</div>
-                <div className="text-sm text-white/60">FEES</div>
-              </div>
-              <div className="hidden sm:block w-px h-8 bg-white/20" />
-              <div className="text-center">
-                <div className="text-3xl font-bold text-[#35b7ff]">L2</div>
-                <div className="text-sm text-white/60">ROLLUP</div>
-              </div>
-            </div>
-            <Button 
-              size="lg" 
-              className="bg-[#35b7ff] hover:bg-[#35b7ff]/90 text-black font-medium text-lg px-8 py-4 hover:scale-105 transition-transform duration-200"
-            >
-              Get Started
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-          </AnimatedSection>
+              <button 
+                onClick={() => navigate('/get-started')}
+                className="mt-8 px-8 py-3 bg-[#35b7ff] text-white rounded-lg hover:bg-[#2a9bda] transition-colors"
+              >
+                Get Started
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </button>
+            </AnimatedSection>
+          </div>
+          <WaveAnimation className="absolute bottom-0 left-0 right-0 h-32" />
         </div>
-        <WaveAnimation className="absolute bottom-0 left-0 right-0 h-32" />
       </VantaBackground>
 
       {/* Showcase Section with Sticky Cube */}
