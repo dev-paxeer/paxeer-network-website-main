@@ -41,7 +41,6 @@ function App() {
               <Route path="/careers" element={<Careers />} />
               <Route path="/ctm" element={<CTM />} />
               <Route path="/mission" element={<Mission />} />
-              <Route path="/security" element={<SecurityGuide />} />
             </Routes>
           </main>
           <Footer />

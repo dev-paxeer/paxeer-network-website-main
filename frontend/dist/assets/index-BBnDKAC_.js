@@ -17823,9 +17823,8 @@ function Header() {
   }, []);
   const navLinks = [
     { href: "/docs", label: "Developers" },
-    { href: "/community", label: "Ecosystem" },
+    { href: "/technology", label: "Technology" },
     { href: "/token", label: "Token" },
-    { href: "/docs", label: "Docs" },
     { href: "/community", label: "Community" },
     { href: "/about", label: "About" }
   ];
@@ -17835,10 +17834,7 @@ function Header() {
       className: `fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-black/80 backdrop-blur-lg border-b border-white/10" : "bg-transparent"}`,
       children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex items-center justify-between h-16", children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(Link, { to: "/", className: "flex items-center space-x-2 hover:scale-105 transition-transform duration-200", children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "w-8 h-8 bg-[#35b7ff] rounded-md flex items-center justify-center glow-blue", children: /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-black font-bold text-sm", children: "P" }) }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-xl font-bold text-glow", children: "Paxeer" })
-          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/", className: "flex items-center space-x-2 hover:scale-105 transition-transform duration-200", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: "https://raw.githubusercontent.com/dev-paxeer/paxeer-network-website-main/refs/heads/main/frontend/Untitled%20design%20(99).png", alt: "Logo", className: "w-35 h-15" }) }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "hidden md:flex items-center space-x-8", children: navLinks.map((link) => /* @__PURE__ */ jsxRuntimeExports.jsx(
             Link,
             {
@@ -19478,6 +19474,125 @@ function Mission() {
     ] }) }) }) })
   ] });
 }
+const partnerLogos = [
+  { name: "Ethereum", src: "/logos/ethereum.png" },
+  { name: "Arbitrum", src: "/logos/arbitrum.png" },
+  { name: "Celestia", src: "/logos/celestia.png" },
+  { name: "Binance", src: "/logos/binance.png" },
+  { name: "Coinbase", src: "/logos/coinbase.png" }
+];
+function Technology() {
+  const [copiedCode, setCopiedCode] = reactExports.useState(null);
+  const copyToClipboard = (code, id) => {
+    navigator.clipboard.writeText(code);
+    setCopiedCode(id);
+    setTimeout(() => setCopiedCode(null), 2e3);
+  };
+  const navSections = [
+    "Network Architecture",
+    "Technology Stack",
+    "Comparison Table",
+    "Partner Integrations",
+    "Developer Resources"
+  ];
+  const techComparison = [
+    {
+      feature: "Consensus Mechanism",
+      paxeer: "Optimistic Rollup",
+      ethereum: "PoS",
+      arbitrum: "Optimistic Rollup",
+      celestia: "Data Availability"
+    },
+    {
+      feature: "Throughput (TPS)",
+      paxeer: "2,000+",
+      ethereum: "15-30",
+      arbitrum: "4,000",
+      celestia: "N/A"
+    },
+    {
+      feature: "Finality Time",
+      paxeer: "5 min",
+      ethereum: "12-15 min",
+      arbitrum: "7 days",
+      celestia: "Instant"
+    },
+    {
+      feature: "Transaction Fees",
+      paxeer: "$0.01",
+      ethereum: "$1-10",
+      arbitrum: "$0.10",
+      celestia: "N/A"
+    }
+  ];
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "pt-16 relative", children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(CodeMatrix, { className: "opacity-20" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "grid lg:grid-cols-4 gap-8", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "lg:col-span-1", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "sticky top-24", children: /* @__PURE__ */ jsxRuntimeExports.jsxs(GlassCard, { className: "hover:scale-105 transition-transform duration-300", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { className: "font-bold mb-4", children: "On This Page" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { className: "space-y-2", children: navSections.map((section) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "a",
+          {
+            href: `#${section.toLowerCase().replace(/\s+/g, "-")}`,
+            className: "block text-sm text-white/80 hover:text-[#35b7ff] transition-colors hover:translate-x-1 duration-200",
+            children: section
+          },
+          section
+        )) })
+      ] }) }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "lg:col-span-3 space-y-12", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs(AnimatedSection, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { className: "text-4xl font-bold mb-6", children: "Paxeer Network Technology" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-lg text-white/80 mb-8", children: "Paxeer is a next-generation Layer 2 solution combining the best of Ethereum security, Arbitrum scalability, and Celestia's data availability." })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(AnimatedSection, { delay: 100, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(GlassCard, { className: "hover:scale-105 transition-transform duration-300", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { id: "network-architecture", className: "text-2xl font-bold mb-4", children: "Network Architecture" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative aspect-video bg-black/20 rounded-lg mb-6 overflow-hidden", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 flex items-center justify-center text-white/50", children: "[Paxeer Network Architecture Diagram]" }) }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "text-white/80 mb-4", children: "Paxeer operates as an Optimistic Rollup securing transactions on Ethereum, while leveraging Arbitrum's fraud proofs and Celestia for scalable data availability." }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "relative group", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("pre", { className: "bg-black/50 p-4 rounded-lg text-[#35b7ff] overflow-x-auto border border-[#35b7ff]/20 group-hover:border-[#35b7ff]/40 transition-colors", children: /* @__PURE__ */ jsxRuntimeExports.jsx("code", { children: "Paxeer = Ethereum(Security) + Arbitrum(Scalability) + Celestia(Data Availability)" }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              Button,
+              {
+                size: "sm",
+                variant: "ghost",
+                className: "absolute top-2 right-2 hover:scale-110 transition-transform duration-200",
+                onClick: () => copyToClipboard("Paxeer = Ethereum(Security) + Arbitrum(Scalability) + Celestia(Data Availability)", "architecture"),
+                children: copiedCode === "architecture" ? /* @__PURE__ */ jsxRuntimeExports.jsx(Check, { className: "w-4 h-4 text-green-400" }) : /* @__PURE__ */ jsxRuntimeExports.jsx(Copy, { className: "w-4 h-4" })
+              }
+            )
+          ] })
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(AnimatedSection, { delay: 200, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(GlassCard, { className: "hover:scale-105 transition-transform duration-300", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { id: "comparison-table", className: "text-2xl font-bold mb-4", children: "Technology Comparison" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "overflow-x-auto", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { className: "w-full", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("thead", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { className: "border-b border-white/10", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "text-left py-3 px-4", children: "Feature" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "text-left py-3 px-4", children: "Paxeer" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "text-left py-3 px-4", children: "Ethereum" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "text-left py-3 px-4", children: "Arbitrum" }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("th", { className: "text-left py-3 px-4", children: "Celestia" })
+            ] }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("tbody", { children: techComparison.map((row, index) => /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { className: "border-b border-white/5 hover:bg-white/5 transition-colors", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "py-3 px-4 font-medium", children: row.feature }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "py-3 px-4 text-[#35b7ff]", children: row.paxeer }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "py-3 px-4", children: row.ethereum }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "py-3 px-4", children: row.arbitrum }),
+              /* @__PURE__ */ jsxRuntimeExports.jsx("td", { className: "py-3 px-4", children: row.celestia })
+            ] }, index)) })
+          ] }) })
+        ] }) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(AnimatedSection, { delay: 300, children: /* @__PURE__ */ jsxRuntimeExports.jsxs(GlassCard, { className: "hover:scale-105 transition-transform duration-300", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { id: "partner-integrations", className: "text-2xl font-bold mb-6", children: "Partner Integrations" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4", children: partnerLogos.map((partner) => /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "flex flex-col items-center justify-center p-4 bg-black/20 rounded-lg hover:bg-[#35b7ff]/10 transition-colors", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "relative w-16 h-16 mb-2", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "absolute inset-0 flex items-center justify-center text-white/50", children: partner.name[0] }) }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "text-sm text-center", children: partner.name })
+          ] }, partner.name)) })
+        ] }) })
+      ] })
+    ] }) })
+  ] });
+}
 function LoadingScreen() {
   const [progress, setProgress] = reactExports.useState(0);
   reactExports.useEffect(() => {
@@ -19543,6 +19658,7 @@ function App() {
         /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/token", element: /* @__PURE__ */ jsxRuntimeExports.jsx(Token, {}) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/docs", element: /* @__PURE__ */ jsxRuntimeExports.jsx(Docs, {}) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/docs/protocol", element: /* @__PURE__ */ jsxRuntimeExports.jsx(DocsProtocol, {}) }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/technology", element: /* @__PURE__ */ jsxRuntimeExports.jsx(Technology, {}) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/community", element: /* @__PURE__ */ jsxRuntimeExports.jsx(Community, {}) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/blog", element: /* @__PURE__ */ jsxRuntimeExports.jsx(Blog, {}) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/careers", element: /* @__PURE__ */ jsxRuntimeExports.jsx(Careers, {}) }),
