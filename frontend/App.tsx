@@ -17,7 +17,7 @@ import { LoadingScreen } from './components/LoadingScreen';
 import { useLoading } from './hooks/useLoading';
 import { DeFiFundamentals } from './pages/DeFiFundamentals';
 import { DeveloperResources } from './pages/DeveloperResources';
-import {SecurityGuide} from './pages/SecurityGuide';
+import SecurityGuide from './pages/SecurityGuide';
 
 function App() {
   const { isLoading } = useLoading();
