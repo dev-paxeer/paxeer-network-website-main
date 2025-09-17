@@ -15,6 +15,9 @@ import { Mission } from './pages/Mission';
 import { Technology } from './pages/Technology';
 import { LoadingScreen } from './components/LoadingScreen';
 import { useLoading } from './hooks/useLoading';
+import { DeFiFundamentals } from './pages/DeFiFundamentals';
+import { DeveloperResources } from './pages/DeveloperResources';
+import {SecurityGuide} from './pages/SecurityGuide';
 
 function App() {
   const { isLoading } = useLoading();
@@ -38,6 +41,7 @@ function App() {
               <Route path="/careers" element={<Careers />} />
               <Route path="/ctm" element={<CTM />} />
               <Route path="/mission" element={<Mission />} />
+              <Route path="/security" element={<SecurityGuide />} />
             </Routes>
           </main>
           <Footer />
